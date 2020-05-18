@@ -14,10 +14,10 @@ var map = L.map('map').setView([38.000, -78.4767], 9); // Center it at Charlotte
          };
        }
     
-var geoJsonLayer = L.geoJson(tractsData, {style: style}).addTo(map);  
+var geoJsonLayer = L.geoJson(tractsData, {style: style}).addTo(map);  // add the Tract Shapes
 
 geoJsonLayer.eachLayer(function (layer) {
-    layer._path.id = "T" + layer.feature.properties.GEOID;
+    layer._path.id = "T" + layer.feature.properties.GEOID;    // For each shape, add an id.
 });
     
 var svgLayer = d3.selectAll("#map").select("svg");
