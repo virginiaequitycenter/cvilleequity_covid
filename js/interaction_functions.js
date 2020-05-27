@@ -66,7 +66,7 @@ var mousemove = function(d) {
     
     d3.select("#tooltip")
       .style("left", d3.event.pageX -100  + "px")
-      .style("top", d3.event.pageY -100 + "px")
+      .style("top", d3.event.pageY -75 + "px")
 
   }
   
@@ -166,6 +166,7 @@ var mouseclick = function(d) {
 maketable(tract_facts, id); 
 }
 
+///////////////////////////////
 function showmethods(){
    d3.selectAll("#methods").classed("closed", false) ;
     
@@ -174,4 +175,30 @@ function showmethods(){
 function closemethods(){
    d3.selectAll("#methods").classed("closed", true) ;
     
+}
+
+
+/////////////////////////////
+
+var mouseoverinfo = function(d) {
+    
+    d3.select("#tooltip2")
+      .style("visibility","visible");
+    
+     var selectedOption = d3.select(this).property("value");
+
+ d3.select("#infotext").text( "Click to Display " + selectedOption + " on Map");
+
+}
+
+var mousemoveinfo = function(d) {
+  d3.select("#tooltip2")
+      .style("left", d3.event.pageX -50  + "px")
+      .style("top", d3.event.pageY -50 + "px")
+}
+
+var mouseleaveinfo = function(d) {
+    d3.select("#tooltip2")
+      .style("visibility", "hidden");
+
 }

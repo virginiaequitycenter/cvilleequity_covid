@@ -52,5 +52,5 @@ function loadVis(input_data, metric){
     
     heat_bars(input_data, heatmap_data, bar_data);     
     
-    colorLeaflet(all_data, "index");
+    colorLeaflet(all_data, "Composite Score");
 }
