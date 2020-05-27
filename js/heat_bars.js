@@ -66,7 +66,7 @@ checkboxes.selectAll(".checks")
     .enter()
     .append('button')
     .classed( "btn", true)
-    .classed("btn-outline-dark", true)
+    .classed("btn-outline-secondary", true)
     .classed("checks", true)
     .attr("value", function(d) {return d})
     .on("click", function(d) {
