@@ -51,7 +51,18 @@ var svg = d3.select("#projectscontainer")
         .select(".domain")
        .remove();  
 
-var checkboxes = d3.selectAll("#toplabels")
+var checkboxes = d3.select("#toplabels");
+ 
+checkboxes.selectAll(".checks")
+    .data(myGroups)
+    .enter()
+    .append('div')
+    .classed( "custom-control", true)
+    .classed("custom-radio", true)
+    .classed("custom-control-inline", true)
+    .append("input")
+    .attr("type", "radio")
+    .classed("custom-control-input", true)
     
     
 var   y2 = d3.scaleBand()
