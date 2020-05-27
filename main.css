@@ -315,3 +315,8 @@ h2{text-align:center;
     }
     
 }
+
+
+  input[type="radio"] {
+  opacity: 1;
+ }
