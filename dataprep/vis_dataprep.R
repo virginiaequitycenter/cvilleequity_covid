@@ -42,7 +42,7 @@ var_labels <- data.frame( Domain = c(
   "nocar",   
   "nofood",  
   "room15",  
-  "und6",
+  "und18",
   "index"),
   Label = c(
     "Population Density",
@@ -50,7 +50,7 @@ var_labels <- data.frame( Domain = c(
     "No Car Access",
     "Low Food Access",
     ">1.5 Ppl/Room",
-    "Children Aged <6",
+    "Children Present",
     "Composite Score"
   )
 )
@@ -80,7 +80,7 @@ visdata <-
              Domain == "density" ~ paste0(round(Percent,1), " ppl/sq. mi."),
              Domain == "room15" ~ paste0(round(Percent,2), "% Households"),
              Domain == "nocar" ~ paste0(round(Percent,2), "% Households"),
-             Domain == "und6" ~ paste0(round(Percent,2), "% Families"),
+             Domain == "und18" ~ paste0(round(Percent,2), "% Families"),
              Domain == "nobb" ~ paste0(round(Percent,2), "% Households"),
              Domain == "nofood" ~ paste0(round(Percent,2), "% Households"),
              
@@ -134,7 +134,7 @@ tract_data %>%
 br_norm <- quantile(tract_data$index_norm, probs = c(0,.2,.4,.6,.8,1), na.rm=TRUE)
 
 tract_data <- tract_data %>% 
-  mutate(normbin = cut(index_norm, breaks = br_norm, labels = c("1st", "2nd", "3rd", "4th", "5th")))
+  mutate(normbin = cut(index_norm, breaks = br_norm, labels = c("Low", "Low-Mid", "Mid", "Mid-High", "High")))
 
 
 # means by bin: to add to viz (as table or graph)
@@ -167,7 +167,7 @@ quintile_table %>%
   write.csv(. , file = "../cvilleequity_covid/data/attributes.csv")
 
 
-# Get the color pallette
+# Get the color palette
 
 viridis(27)[seq(2,27,3)] %>% rev()
 
@@ -175,3 +175,6 @@ viridis(27)[seq(2,27,3)] %>% rev()
 burden_geo %>%
 #  geojson_write(. , file = "../Visualization_Scripts/SIP_Burden/data/tracts.geojson")
   geojson_write(. , file = "../cvilleequity_covid/data/tracts.geojson")
+
+magdist %>% 
+  geojson_write(., file = "../cvilleequity_covid/data/magdis.geojson")

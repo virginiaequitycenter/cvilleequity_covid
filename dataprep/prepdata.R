@@ -82,7 +82,7 @@ library(sf)
 ##  - Total population -- B01003_001
 ##  - (Area)
 ##  - Two or more occupants per room -- B25014_007+B25014_013/B25014_001
-##  - Presence of own children under 6 -- B11003_004+B11003_005+B11003_011+B11003_012+B11003_017+B11003_018/B11003_001 (0-17: B11003_003+B11003_010+B11003_016)
+##  - Presence of own children under 6/under 18 -- B11003_004+B11003_005+B11003_011+B11003_012+B11003_017+B11003_018/B11003_001 (0-17: B11003_003+B11003_010+B11003_016)
 ##  - Multigenerational households -- B11017_002/B11017_001
 ##  - Computer and Broadband subscription in household -- B28003_004/B28003_001
 ##  - Renter rates -- B25003_003/B25003_001 
@@ -147,10 +147,13 @@ varlist_b = c("B01003_001", # totalpop
               "B25014_001", # total
               "B11003_004", # married, children under 6
               "B11003_005", # married, children under 6 and 6-17
-              "B11003_011", # male hher, children under 6
+              "B11003_011", # male hhr, children under 6
               "B11003_012", # male hhr, children under 6 and 6-17 
               "B11003_017", # female hhr, children under 6
               "B11003_018", # female hhr, children under 6 and 6-17
+              "B11003_003", # married, children under 18
+              "B11003_010", # male hhr, children under 18
+              "B11003_016", # female hhr, children under 18
               "B11003_001", # total families
               # "B11017_002", # multigenerational hh (only in decennial)
               # "B11017_001", # total hh
@@ -248,7 +251,10 @@ names(tract_data_b) = c("GEOID", "NAME",
                         "und6b_mhhE", "und6b_mhhM",
                         "und6a_fhhE", "und6a_fhhM",
                         "und6b_fhhE", "und6b_fhhM",
-                        "und6_denE", "und6denM",
+                        "und18_marrE", "und18_marrM",
+                        "und18_mhhE", "und18_mhhM",
+                        "und18_fhhE", "und18_fhhM",
+                        "und6_denE", "und6_denM",
                         # "multihhE", "multihhM",
                         # "multidenE", "multidenM",
                         "comp_bbE", "comp_bbM",
@@ -293,8 +299,14 @@ tract_data_b <- tract_data_b %>%
            (und6b_mhhM/1.645)^2 + (und6a_fhhM/1.645)^2 + (und6b_fhhM/1.645)^2,
          und6_sumM = sqrt(und6_sumM)*1.645,
          und6E = round((und6_sumE/und6_denE)*100, 1),
-         und6M = moe_prop(und6_sumE, und6_denE, und6_sumM, und6denM),
+         und6M = moe_prop(und6_sumE, und6_denE, und6_sumM, und6_denM),
          und6M = round(und6M*100,1)) %>% 
+  mutate(und18_sumE = und18_marrE + und18_mhhE + und18_fhhE,
+         und18_sumM = (und18_marrM/1.645)^2 + (und18_mhhM/1.645)^2 + (und18_fhhM/1.645)^2,
+         und18_sumM = sqrt(und18_sumM)*1.645,
+         und18E = round((und18_sumE/und6_denE)*100, 1),
+         und18M = moe_prop(und18_sumE, und6_denE, und18_sumM, und6_denM),
+         und18M = round(und18M*100,1)) %>% 
   # mutate(multigenE = round((multihhE/multidenE)*100,1),
   #        multigenM = moe_prop(multihhE, multidenE, multihhM, multidenM),
   #        multigenM = round(multigenM*100, 1)) %>% 
@@ -326,8 +338,8 @@ tract_data_b <- tract_data_b %>%
   mutate(incpov2E = round((incpov_2E/incpov_denE)*100,1),
          incpov2M = moe_prop(incpov_2E, incpov_denE, incpov_2M, incpov_denM),
          incpov2M = round(incpov2M*100, 1)) %>% 
-  select(-c(room15_sumE, room15_sumM, und6_sumE, und6_sumM, nocar_sumE, nocar_sumM, disab_sumE, disab_sumM,
-            oneroom_ownE:incpov_denM))
+  select(-c(room15_sumE, room15_sumM, und6_sumE, und6_sumM, und18_sumE, und18_sumM,
+            nocar_sumE, nocar_sumM, disab_sumE, disab_sumM, oneroom_ownE:incpov_denM))
 
 # Derive variables: tract_data_d
 tract_data_d <- tract_data_d %>% 
@@ -393,15 +405,20 @@ tract_blailx <- tract_race %>%
   ungroup()
 
 # Reduce tables: tract_occ
-#   This list is super speculative -- and almost certainly quite right
+#   This list is super speculative -- and almost certainly not quite right
 #   Tried to translate from mckinsey report: https://www.mckinsey.com/industries/public-sector/our-insights/lives-and-livelihoods-assessing-the-near-term-impact-of-covid-19-on-us-workers
-#   And a second mckinsey report referenced inside this one
+#   And a second mckinsey report referenced inside this one (emphasis on likely job loss)
 #   Definitely needs more research, possibly alternative (less evil) sources
 #   a possiblity: https://adpemploymentreport.com/2020/April/NER/NER-April-2020.aspx
-occlist <- c("S2401_C01_011", "S2401_C01_014", 
-            "S2401_C01_023", "S2401_C01_024", "S2401_C01_025",
-            "S2401_C01_026", "S2401_C01_032", "S2401_C01_035",
-            "S2401_C01_036")
+occlist <- c("S2401_C01_011", # community and social service occupations
+             "S2401_C01_014", # arts, design, entertainment, sports and media occupations
+             "S2401_C01_023", # food preparation and serving related occupations
+             "S2401_C01_024", # building and grounds cleaning and maintenance occupations
+             "S2401_C01_025", # personal care and service occupations
+             "S2401_C01_026", # sales and office occupations
+             "S2401_C01_032", # installation, maintenance, and repair occupations
+             "S2401_C01_035", # transportation occupations
+             "S2401_C01_036") # material moving occupations
 tract_occnum <- tract_occ %>% 
   filter(variable %in% occlist) %>% 
   group_by(GEOID) %>% 

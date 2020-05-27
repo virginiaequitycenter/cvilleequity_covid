@@ -8,12 +8,11 @@ summary(tract_data)
 
 # burden bins
 br_norm <- quantile(tract_data$index_norm, probs = c(0,.2,.4,.6,.8,1), na.rm=TRUE)
-br_rank <- quantile(tract_data$index_rank, probs = c(0,.2,.4,.6,.8,1), na.rm=TRUE)
+# br_rank <- quantile(tract_data$index_rank, probs = c(0,.2,.4,.6,.8,1), na.rm=TRUE)
 tract_data <- tract_data %>% 
-  mutate(normbin = cut(index_norm, breaks = br_norm, labels = c("Quintile 1", "Quintile 2", "Quintile 3", "Quintile 4", "Quintile 5")),
-         rankbin = cut(index_rank, breaks = br_rank))
+  mutate(normbin = cut(index_norm, breaks = br_norm, labels = c("Low", "Low-Mid", "Middle", "Mid-High", "High"))) 
 
-table(tract_data$rankbin, tract_data$normbin)
+table(tract_data$normbin)
 
 # means by bin: to add to viz (as table or graph)
 # normed version
@@ -42,8 +41,8 @@ quintile_table
 
 
 quintile_table %>%
-kable()
-  #kable(format = "rst")
+  # kable()
+  kable(format = "rst")
 
 # ranked version
 tract_data %>% group_by(rankbin) %>% 

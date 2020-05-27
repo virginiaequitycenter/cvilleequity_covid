@@ -38,13 +38,13 @@ tract_data2 <- tract_data %>%
   filter(GEOID != "51003010903")
 
 burden <- tract_data2 %>% 
-  select(GEOID, densityE, room15E, bb_compE, lapop1share, nocarE, und6E, vmt_mar1E)  
+  select(GEOID, densityE, room15E, bb_compE, lapop1share, nocarE, und6E, und18E, vmt_mar1E)  
 alpha(burden[,2:8], check.keys=TRUE)
 
 burden <- burden %>% 
   mutate(nobbE = 100-bb_compE,
          nofoodE = 100-lapop1share) %>% 
-  select(-c(bb_compE, lapop1share, vmt_mar1E))
+  select(-c(bb_compE, lapop1share, vmt_mar1E, und6E))
 alpha(burden[,2:7], check.keys=TRUE)
 
 
