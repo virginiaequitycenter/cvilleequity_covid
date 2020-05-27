@@ -61,7 +61,7 @@ var map_data;
 function colorLeaflet(initial_data, input){
     
  map_data = initial_data.filter(function(el) {
-    return el.Domain === input;})   
+    return el.Label === input;})   
     
 var maxbar = d3.max(map_data, function(d) {return d.Number;}) 
 
@@ -89,7 +89,7 @@ map_data.forEach(function(d) {
                 
         var tract = d["GEOID"];
     
-           d3.select("#T" + tract).transition().duration(1000)
+           d3.select("#T" + tract).transition().duration(1500)
                     .style("fill", myColorBar(d["Number"]))
                ;             
            });
