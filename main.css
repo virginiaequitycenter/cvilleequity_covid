@@ -191,6 +191,11 @@ padding:0;
     pointer-events:visible; 
 }
 
+
+
+
+
+
 .rowtitles{
     font-weight: bold;
     
@@ -268,10 +273,6 @@ h2{text-align:center;
 
 
 
-
-
-
-
 #Exitbutton {
     position:absolute;
     width: 100px;
@@ -291,7 +292,6 @@ h2{text-align:center;
 
 
 
-
 #methods{
     position: absolute;
     left:1%;
@@ -306,7 +306,7 @@ h2{text-align:center;
     overflow-y: scroll;
     border-radius: 10px;
   border: 3px solid #292b2c;
-    z-index: 500;
+    z-index: 1000;
 }
 
 @media screen and (max-width: 635px) {

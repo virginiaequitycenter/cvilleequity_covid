@@ -91,7 +91,7 @@ table_nested2 = d3.nest()
 
     
 mycolumns2 = d3.map(table_data2, function(d){return d.Columns;}).keys();
-   var statistic = ["Quintiles:"]
+   var statistic = ["Burden:"]
    mycolumns2= statistic.concat( mycolumns2);
    myrows2 = d3.map(table_data2, function(d){return d.Rows;}).keys()
 

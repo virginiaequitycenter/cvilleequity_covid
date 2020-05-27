@@ -1,6 +1,8 @@
+var map;
+
 function initiateLeaflet() {
      
-var map = L.map('map').setView([38.000, -78.4767], 9); // Center it at Charlottesville to start
+ map = L.map('map').setView([38.000, -78.4767], 9); // Center it at Charlottesville to start
     
   L.tileLayer.provider('CartoDB.Voyager').addTo(map);    // Create the base layers 
     
@@ -19,7 +21,7 @@ var geoJsonLayer = L.geoJson(tractsData, {style: style}).addTo(map);
 geoJsonLayer.eachLayer(function (layer) {
     layer._path.id = "T" + layer.feature.properties.GEOID;
 });
-    
+        
 var svgLayer = d3.selectAll("#map").select("svg");
 var tractg = svgLayer.select('g').attr("id", "tractlayers").attr("class", "leaflet-zoom-hide");
 var tractshapes = tractg.selectAll("path")
@@ -28,10 +30,38 @@ var tractshapes = tractg.selectAll("path")
              .on("mouseleave", mouseleavemap)
              .on("click", mouseclick)
             .attr("class", "tractshapes");     
+
+
+
+    //Add districts as controlled layer
+  function overstyle(feature) {
+     return {
+        weight: 2,
+        opacity: .8,
+        color: 'grey',
+        dashArray: '1',
+        fill: false
+         };
+       }
+
+var magdis = L.geoJson(magDis, {style: overstyle});
+
+var overlayDistrict = {
+    "Magesterial Districts": magdis
+};
+    
+L.control.layers(null, overlayDistrict, {position: 'bottomleft'}).addTo(map);   
+
+
 }
 
 
-function colorLeaflet(map_data){
+var map_data;
+
+function colorLeaflet(initial_data, input){
+    
+ map_data = initial_data.filter(function(el) {
+    return el.Domain === input;})   
     
 var maxbar = d3.max(map_data, function(d) {return d.Number;}) 
 
@@ -65,12 +95,11 @@ map_data.forEach(function(d) {
            });
     
 var leafsvg = d3.selectAll(".leaflet-top").filter(".leaflet-right").selectAll("svg").remove();
-
     
 var leafsvg = d3.selectAll(".leaflet-top").filter(".leaflet-right").append("svg")
                 .attr("height", 300)
                 .attr("width", 50)
-                 .attr("top", 50)
+                .attr("transform", "translate(" + 0 + "," + 0+ ")")
                 .append("g");
 
 var defs = leafsvg.append("defs");
@@ -94,29 +123,22 @@ linearGradient.selectAll("stop")
 
 leafsvg.append("rect")
     .attr("width", 20)
-    .attr("height", 300)
+    .attr("height", 290)
     .style("fill", "url(#linear-gradient)")
-     .attr("transform", "translate(" + 20 + "," +10 + ")")
+     .attr("transform", "translate(" + 25 + "," + 5+ ")")
     .attr("opacity", .8);
     
 
 var colory = d3.scaleLinear()
-    .domain([maxbar,minbar])
-    .range([ 0, 300])  
+    .domain([minbar,maxbar])
+    .range([ 290, 0])  
 
  leafsvg.append("g")
     .style("font-size", 10)
     .call(d3.axisLeft(colory).tickSize(4))
-         .attr("transform", "translate(" + 20 + "," +10 + ")")
+         .attr("transform", "translate(" + 25 + "," + 5 + ")")
 
   //  .select(".domain").remove()
-    
-    
-    
-    
-    
-    
-    
     
     
 }

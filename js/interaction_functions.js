@@ -103,18 +103,27 @@ var id = d3.select(this).attr("id");
     
      id = id.substring(1, id.length);
         
-var tooltip_data = bar_data.filter(function(el) {
+var tooltip_data = map_data.filter(function(el) {
          return el.GEOID === id ;})
 
     
 function modify_tooltip(d)    {    
-        d3.select("#countyname").text(d.CountyName + " " )
-        d3.select("#tractname").text(d.NAMELSAD  )
+        d3.select("#countyname").text(d.CountyName + " " );
+        d3.select("#tractname").text(d.NAMELSAD  );
 
-    d3.select("#indicatorname").text( d.Label + ": ")
-  d3.select("#indicatorvalue").text( d.Number)
+    if (d.Label == "Composite Score"){
+       d3.select("#indicatorname").text( d.Label + ": ");
+        d3.select("#indicatorvalue").text( d.Number);
+        d3.select("#value").text("");
 
-    d3.select("#value").text("")
+        
+    } else {
+    d3.select("#indicatorname").text( d.Label + ": ");
+    d3.select("#indicatorvalue").text( d.Percent);
+    d3.select("#value").text("Index Value: " + d.Number)
+        
+    }
+
  }
     
 modify_tooltip(tooltip_data[[0]]);

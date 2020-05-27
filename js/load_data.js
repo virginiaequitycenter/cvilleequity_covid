@@ -37,9 +37,12 @@ d3.csv("data/burden_data.csv")
 
 var bar_data;
 var heatmap_data;
+var all_data;
 
 function loadVis(input_data, metric){
     
+   all_data = input_data.filter(function(el) {
+    return el.Index === metric })
         
    heatmap_data = input_data.filter(function(el) {
     return el.Index === metric && el.Domain !== "index";})
@@ -49,6 +52,5 @@ function loadVis(input_data, metric){
     
     heat_bars(input_data, heatmap_data, bar_data);     
     
-    colorLeaflet(bar_data);
-    
+    colorLeaflet(all_data, "index");
 }

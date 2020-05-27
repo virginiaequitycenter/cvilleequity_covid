@@ -19,7 +19,7 @@ var myVars = d3.map(heatmap_data, function(d){return d.GEOID;}).keys()
     
 var margin = {top: 200, right: 50, bottom: 60, left: 500},
   width = 1110 - margin.left - margin.right,
-  mappad = {top: 200},
+  mappad = {top: 200, text: 125},
   height = 4000 - margin.top - margin.bottom - mappad.top;
     
 var svg = d3.select("#projectscontainer")
@@ -37,7 +37,8 @@ var svg = d3.select("#projectscontainer")
     .padding(0.05);
     
   svg.append("g")
-    .attr("transform", "translate(0," + mappad.top + ")")
+    .attr("id", "toplabels")
+    .attr("transform", "translate(0," + mappad.text  + ")")
     .attr("class", "dimensions")
     .call(d3.axisTop(x).tickSize(0))
         .selectAll('text')
@@ -45,12 +46,14 @@ var svg = d3.select("#projectscontainer")
         .style("text-anchor", "start")
         .attr("dx", ".8em")
         .attr("dy", ".5em")
-        .attr("transform", function (d) {
-            return "rotate(-55)";
-        })
+        .attr("transform",  "rotate(-55)")
+     //   .on("click", function())
         .select(".domain")
        .remove();  
 
+var checkboxes = d3.selectAll("#toplabels")
+    
+    
 var   y2 = d3.scaleBand()
     .range([ height, 0 ])
     .domain(myVars)
