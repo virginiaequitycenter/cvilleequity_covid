@@ -66,7 +66,7 @@ var mousemove = function(d) {
     
     d3.select("#tooltip")
       .style("left", d3.event.pageX -100  + "px")
-      .style("top", d3.event.pageY -75 + "px")
+      .style("top", d3.event.pageY -100 + "px")
 
   }
   
