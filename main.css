@@ -150,6 +150,7 @@ padding:0;
             text-align: left;
             opacity: 0.85;
             border-radius: 7.5px;
+           z-index: 1000;
 
         }
 
@@ -167,6 +168,8 @@ padding:0;
             text-align: left;
             opacity: 0.85;
             border-radius: 7.5px;
+               z-index: 1000;
+
 
         }
 
