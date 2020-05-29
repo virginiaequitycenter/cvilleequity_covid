@@ -81,7 +81,7 @@ library(sf)
 # Variable of interest -
 ##  - Total population -- B01003_001
 ##  - (Area)
-##  - Two or more occupants per room -- B25014_007+B25014_013/B25014_001
+##  - 1.5 or more occupants per room -- B25014_007+B25014_013/B25014_001
 ##  - Presence of own children under 6/under 18 -- B11003_004+B11003_005+B11003_011+B11003_012+B11003_017+B11003_018/B11003_001 (0-17: B11003_003+B11003_010+B11003_016)
 ##  - Multigenerational households -- B11017_002/B11017_001
 ##  - Computer and Broadband subscription in household -- B28003_004/B28003_001

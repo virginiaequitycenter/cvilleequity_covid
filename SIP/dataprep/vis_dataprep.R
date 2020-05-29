@@ -1,11 +1,16 @@
+# Prep for Visualization 
+
+# ....................................................
+# 1. Libraries and Data ----
 library(tidyverse)
 library(viridis)
 library(geojsonio)
 
 load("burden_work.Rdata")
 
-# 8. Save for Visualization Work
 
+# ....................................................
+# 2. Geography and labels ----
 # Get the County Labels 
 counties <- data.frame(COUNTYFP = as.character(c("003", "029", "540", "065", "079", "109", "113", "125", "137")),
                        CountyName = c("Albemarle County", 
@@ -34,9 +39,12 @@ geo_labels <-
 geo_labels
 
 
-# Label the Variables. 
+# ....................................................
+# 2. Variable labels and join ----
 
-var_labels <- data.frame( Domain = c(
+# BURDEN
+# Label the Variables
+var_labels_burden <- data.frame( Domain = c(
   "density", 
   "nobb",    
   "nocar",   
@@ -49,15 +57,14 @@ var_labels <- data.frame( Domain = c(
     "No Broadband",
     "No Car Access",
     "Low Food Access",
-    ">1.5 Ppl/Room",
+    "1.5+ Ppl/Room",
     "Children Present",
     "Composite Score"
   )
 )
 
-
-# Join all Data Together. 
-visdata <- 
+# Join all Data Together
+visdata_burden <- 
   burden %>% 
   gather(Domain, Number, -(GEOID )) %>% 
   separate(Domain, c("Domain", "Index"), sep = "_") %>% 
@@ -73,7 +80,7 @@ visdata <-
               select(GEOID, Domain, Percent)
   ) %>% 
   left_join(geo_labels) %>%
-  left_join(var_labels) %>%
+  left_join(var_labels_burden) %>%
   arrange(Ordering, desc(GEOID) ) %>%
   mutate(Percent = 
            case_when(
@@ -83,16 +90,73 @@ visdata <-
              Domain == "und18" ~ paste0(round(Percent,2), "% Families"),
              Domain == "nobb" ~ paste0(round(Percent,2), "% Households"),
              Domain == "nofood" ~ paste0(round(Percent,2), "% Households"),
-             
              TRUE ~ paste0(Percent)
            ))
 
 # this goes on the heat map and the map
-visdata %>%
-#  write.csv(. , file = "../Visualization_Scripts/SIP_Burden/data/burden_data.csv")
-  write.csv(. , file = "../cvilleequity_covid/data/burden_data.csv")
+visdata_burden %>%
+  #  write.csv(. , file = "../Visualization_Scripts/SIP_Burden/data/burden_data.csv")
+  write.csv(. , file = "../cvilleequity_covid/SIP/data/burden_data.csv")
 
 
+# EASE
+# Label the Variables
+var_labels_ease <- data.frame( Domain = c(
+  "sparsity", 
+  "nocrowd",  
+  "car",   
+  "nochld",
+  "bbcomp",    
+  "food",
+  "index"),
+  Label = c(
+    "Population Sparsity",
+    "Less than 1.5 Ppl/Room",
+    "Car Access",
+    "No Children",
+    "Broadband Access",
+    "Food Access",
+    "Composite Score"
+  )
+)
+
+visdata_ease <- 
+  ease %>% 
+  gather(Domain, Number, -(GEOID )) %>% 
+  separate(Domain, c("Domain", "Index"), sep = "_") %>% 
+  mutate(Number = round(Number, 2)) %>%
+  filter(!Index == "percent")  %>%
+  left_join(. ,
+            
+            ease %>% 
+              gather(Domain, Number, -(GEOID )) %>% 
+              separate(Domain, c("Domain", "Index"), sep = "_") %>% 
+              filter(Index == "percent") %>%
+              rename(Percent = Number) %>%
+              select(GEOID, Domain, Percent)
+  ) %>% 
+  left_join(geo_labels) %>%
+  left_join(var_labels_ease) %>%
+  arrange(Ordering, desc(GEOID) ) %>%
+  mutate(Percent = 
+           case_when(
+             Domain == "sparsity" ~ paste0(round(Percent,1), " ppl/sq. mi."),
+             Domain == "nocrowd" ~ paste0(round(Percent,2), "% Households"),
+             Domain == "car" ~ paste0(round(Percent,2), "% Households"),
+             Domain == "nochld" ~ paste0(round(Percent,2), "% Families"),
+             Domain == "bbcomp" ~ paste0(round(Percent,2), "% Households"),
+             Domain == "food" ~ paste0(round(Percent,2), "% Households"),
+             TRUE ~ paste0(Percent)
+           ))
+
+
+# this goes on the heat map and the map
+visdata_ease %>%
+  write.csv(. , file = "../cvilleequity_covid/SIP/data/ease_data.csv")
+
+
+# ....................................................
+# 3. Generate SDH/context data ----
 # This data goes in the tract charts
 relabeler <- data.frame(Domain = c("badegreeE", "life_expE",  "hhincE"), 
                         Label = c("Have Bachelors Degree", "Average Life Expectancy", "Median Household Income"))
@@ -125,10 +189,13 @@ tract_data %>%
            )
   ) %>% 
 #  write.csv(. , file = "../Visualization_Scripts/SIP_Burden/data/tract_facts.csv")
-  write.csv(., file = "../cvilleequity_covid/data/tract_facts.csv")
+  write.csv(., file = "../cvilleequity_covid/SIP/data/tract_facts.csv")
 
 
+# ....................................................
+# 4. Generate disparity table data ----
 # This data goes in the Quintile Charts
+# REMOVED for separate analysis page
 
 # burden bins
 br_norm <- quantile(tract_data$index_norm, probs = c(0,.2,.4,.6,.8,1), na.rm=TRUE)
@@ -167,13 +234,14 @@ quintile_table %>%
   write.csv(. , file = "../cvilleequity_covid/data/attributes.csv")
 
 
+# ....................................................
+# 5. Export geojson ----
 # Get the color palette
 
 viridis(27)[seq(2,27,3)] %>% rev()
 
 # Export the burden data as geojson for the visualization into leaflets
 burden_geo %>%
-#  geojson_write(. , file = "../Visualization_Scripts/SIP_Burden/data/tracts.geojson")
   geojson_write(. , file = "../cvilleequity_covid/data/tracts.geojson")
 
 magdist %>% 

@@ -3,18 +3,18 @@
 ####################################################
 # Generate indices
 # Created: 05/08/2020 mpc
-# Last updated: 05/13/2020 mpc
+# Last updated: 05/29/2020 mpc
 
 ####################################################
 # Structure
 # 1. Libraries and Data
-# 2. 2. Select indicators, filter data
-# 3. Create naive burden index, sum min-max normalized
-# 4. Create naive burden index, sum rank
-# 5. Join indices to burden, to tract_data, and explore
+# 2. Select indicators, filter data: burden and ease
+# 3. Create naive burden/ease index, sum min-max normalized
+# 4. REMOVED: Create naive burden index, sum rank
+# 5. Join indices to burden/ease, to tract_data, and explore
 # 6. Quick exploratory map
 # 7. Save work
-# 8. Save for Visualization Work
+# 8. REMOVED: Wrangle for Visualization 
 ####################################################
 
 
@@ -37,28 +37,57 @@ load("tract_data_work.Rdata")
 tract_data2 <- tract_data %>% 
   filter(GEOID != "51003010903")
 
+# BURDEN
 burden <- tract_data2 %>% 
-  select(GEOID, densityE, room15E, bb_compE, lapop1share, nocarE, und6E, und18E, vmt_mar1E)  
+  select(GEOID, densityE, room15E, bb_compE, lapop1share, nocarE, und18E, und6E, vmt_mar1E)  
 alpha(burden[,2:8], check.keys=TRUE)
 
+# order bb_compE, lapop1share: high=burden, low=ease
 burden <- burden %>% 
   mutate(nobbE = 100-bb_compE,
          nofoodE = 100-lapop1share) %>% 
   select(-c(bb_compE, lapop1share, vmt_mar1E, und6E))
 alpha(burden[,2:7], check.keys=TRUE)
 
+# EASE
+# order room15E, nocareE, und18E: high=ease, low=burden (reverse density below)
+ease <- tract_data2 %>% 
+  select(GEOID, densityE, room15E, bb_compE, lapop1share, nocarE, und18E)  
+
+ease <- ease %>% 
+  mutate(carE = 100-nocarE,
+         nochldE = 100-und18E,
+         nocrowdE = 100-room15E,
+         sparsityE = densityE) %>% 
+  rename(foodE = lapop1share,
+         bbcompE = bb_compE) %>% 
+  select(-c(nocarE, room15E, und18E, densityE)) %>% 
+  select(GEOID, sparsityE, nocrowdE, carE, nochldE, bbcompE, foodE)
+alpha(ease[,2:7], check.keys=TRUE)
+
 
 # ....................................................
-# 3. Create naive burden index, sum min-max normalized ----
+# 3. Create naive burden/ease index, sum min-max normalized ----
 minmaxnorm <- function(x){
   return((x- min(x)) /(max(x)-min(x)))
 }
 
+# BURDEN
 burden_norm <- modify_if(burden, is.numeric, minmaxnorm)
 burden_norm$index_norm <- rowSums(burden_norm[,2:7])
 names(burden_norm)[2:7] <- str_replace(names(burden_norm)[2:7], "E", "_norm")
 
 ggplot(burden_norm, aes(x = index_norm)) + geom_density()
+
+# EASE
+# reverse density
+ease_norm <- modify_if(ease, is.numeric, minmaxnorm)
+ease_norm <- ease_norm %>% 
+  mutate(sparsityE = 1-sparsityE) 
+ease_norm$index_norm <- rowSums(ease_norm[,2:7])
+names(ease_norm)[2:7] <- str_replace(names(ease_norm)[2:7], "E", "_norm")
+
+ggplot(ease_norm, aes(x = index_norm)) + geom_density()
 
 
 # # ....................................................
@@ -81,8 +110,9 @@ ggplot(burden_norm, aes(x = index_norm)) + geom_density()
 # 
 
 # ....................................................
-# 5. Join indices to burden, to tract_data, and explore ----
-# Join to burden
+# 5. Join indices to burden/ease, to tract_data, and explore ----
+
+# BURDEN
 names(burden)[2:7] <- str_replace(names(burden)[2:7], "E", "_percent")
 
 burden <- burden %>% 
@@ -95,11 +125,19 @@ tract_data <- tract_data %>%
 
 ggplot(tract_data, aes(x = hhincE, y = index_norm)) + geom_point()
 
+# EASE
+names(ease)[2:7] <- str_replace(names(burden)[2:7], "E", "_percent")
+
+ease <- ease %>% 
+  left_join(ease_norm, by = c("GEOID")) 
+summary(ease)
+
 
 # ....................................................
 # 6. Quick exploratory map ----
 # add geometry
 burden_geo <- geo_join(tract, burden, by = "GEOID")
+
 mycol <- colorRampPalette(brewer.pal(8, "YlGnBu"))(10)
 pal <- colorNumeric(palette = mycol,
                     domain = burden_geo$index_rank)
@@ -137,6 +175,7 @@ save.image("burden_work.Rdata")
 # load("burden_work.Rdata")
 
 
+# MOVED TO vis_dataprep.R
 # ....................................................
 # 8. Save for Visualization Work ----
 
@@ -170,20 +209,20 @@ geo_labels
 # Label the Variables. 
 
 var_labels <- data.frame( Domain = c(
-               "density", 
-                "nobb",    
-                "nocar",   
-                "nofood",  
-                "room15",  
-                "und6",
+               "sparsity", 
+               "nocrowd",  
+               "car",   
+               "nochld",
+               "bbcomp",    
+               "lapop1share",
                "index"),
               Label = c(
-                "Population Density",
-                "No Broadband",
-                "No Car Access",
-                "Low Food Access",
-                ">1.5 Ppl/Room",
-                "Children Aged <6",
+                "Population Sparsity",
+                "1.5 Ppl/Room or less",
+                "Car Access",
+                "No Children",
+                "Broadband Access",
+                "Food Access",
                 "Composite Score"
               )
 )
@@ -192,7 +231,7 @@ var_labels <- data.frame( Domain = c(
 
 # Join all Data Together. 
 visdata <- 
-burden %>% 
+  burden %>% 
   gather(Domain, Number, -(GEOID )) %>% 
   separate(Domain, c("Domain", "Index"), sep = "_") %>% 
   mutate(Number = round(Number, 2)) %>%
@@ -211,7 +250,7 @@ burden %>%
    arrange(Ordering, desc(GEOID) )
 
 visdata %>%
-  write.csv(. , file = "Visualization_Scripts/Development/burden_data.csv")
+  write.csv(. , file = "../cvilleequity_covid/SIP/data/burden_data.csv")
   
 
 # Get the color pallette
@@ -219,5 +258,5 @@ visdata %>%
 viridis(27)[seq(2,27,3)] %>% rev()
 
 burden_geo %>%
-  geojson_write(. , file = "Visualization_Scripts/Development/tracts.geojson")
+  geojson_write(. , file = "../cvilleequity_covid/SIP/data/tracts.geojson")
 
