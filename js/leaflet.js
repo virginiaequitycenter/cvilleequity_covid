@@ -2,11 +2,31 @@ var map;
 
 function initiateLeaflet() {
      
- map = L.map('map').setView([38.000, -78.4767], 9); // Center it at Charlottesville to start
+var minimal  =  L.tileLayer.provider('CartoDB.Voyager'),
+    detailed = L.tileLayer.provider('OpenStreetMap.Mapnik');
     
-  L.tileLayer.provider('CartoDB.Voyager').addTo(map);    // Create the base layers 
+ map = L.map('map', 
+             { center:[38.000, -78.4767],
+              zoom: 9,
+              layers: [minimal, detailed]
+             });         // Center it at Charlottesville to start
     
-  function style(feature) {
+// L.tileLayer.provider('CartoDB.Voyager').addTo(map);    // Create the base layers 
+ 
+ var baseMaps = {
+    "Minimal Basemap": minimal,
+    "Detailed Basemap": detailed
+};
+
+var magdis = L.geoJson(magDis, {style: overstyle});
+
+var overlayDistrict = {
+    "Magesterial Districts": magdis
+};
+    
+L.control.layers(baseMaps, overlayDistrict, {position: 'bottomleft'}).addTo(map);      
+    
+function style(feature) {
      return {
         weight: 2,
         opacity: .8,
@@ -30,8 +50,7 @@ var tractshapes = tractg.selectAll("path")
              .on("mouseleave", mouseleavemap)
              .on("click", mouseclick)
             .attr("class", "tractshapes");     
-
-
+    
 
     //Add districts as controlled layer
   function overstyle(feature) {
@@ -44,13 +63,6 @@ var tractshapes = tractg.selectAll("path")
          };
        }
 
-var magdis = L.geoJson(magDis, {style: overstyle});
-
-var overlayDistrict = {
-    "Magesterial Districts": magdis
-};
-    
-L.control.layers(null, overlayDistrict, {position: 'bottomleft'}).addTo(map);   
 
 
 }

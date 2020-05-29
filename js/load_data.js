@@ -25,12 +25,12 @@ d3.csv("data/burden_data.csv")
       });
      
     
-     d3.csv("data/attributes.csv")
-    .then(
-      function(data) {
-          attributes = data;
-          attributetable(attributes);
-      });
+//    d3.csv("data/attributes.csv")
+//        .then(
+//      function(data) {
+//          attributes = data;
+//          attributetable(attributes);
+//      });
      
 }
 
