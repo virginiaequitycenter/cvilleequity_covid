@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap&family=Mandali&display=swap');
+
 body {
     font-family: 'Asap', sans-serif;
     padding-top: 56px;
 }
-<<<<<<< HEAD
 
 .container-fluid { 
 	overflow: hidden; 
@@ -149,6 +150,7 @@ padding:0;
             text-align: left;
             opacity: 0.85;
             border-radius: 7.5px;
+           z-index: 1000;
 
         }
 
@@ -166,6 +168,8 @@ padding:0;
             text-align: left;
             opacity: 0.85;
             border-radius: 7.5px;
+               z-index: 1000;
+
 
         }
 
@@ -331,12 +335,6 @@ h2{text-align:center;
     
 }
 
-<<<<<<< HEAD
-
-  input[type="radio"] {
-  opacity: 1;
- }
-=======
 #colorswitcherdiv {
     position: absolute;
     left:27.78%;
@@ -373,3 +371,4 @@ h2{text-align:center;
 
     
 }
+
