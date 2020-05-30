@@ -1,3 +1,5 @@
+
+
 function heat_bars(input_data, heatmap_data, bar_data) {
 
 var svg = d3.select("#projectscontainer").selectAll('g').remove();
@@ -15,9 +17,9 @@ var counties = d3.nest()
 var myGroups = d3.map(input_data, function(d){return d.Label;}).keys();
 var myVars = d3.map(heatmap_data, function(d){return d.GEOID;}).keys()
     
-var margin = {top: 200, right: 50, bottom: 60, left: 500},
+var margin = {top: 250, right: 50, bottom: 60, left: 500},
   width = 1110 - margin.left - margin.right,
-  mappad = {top: 200, text: 125},
+  mappad = {top: 250, text: 165},
   height = 4000 - margin.top - margin.bottom - mappad.top;
     
 var svg = d3.select("#projectscontainer")
@@ -344,3 +346,5 @@ var tract_group_names = svg.selectAll(".tractnames")
 		}
 	  });
 	}//wrap	
+
+

@@ -8,7 +8,9 @@ var minimal  =  L.tileLayer.provider('CartoDB.Voyager'),
  map = L.map('map', 
              { center:[38.000, -78.4767],
               zoom: 9,
-              layers: [minimal, detailed]
+              layers: [minimal, detailed],
+                           gestureHandling: true,
+
              });         // Center it at Charlottesville to start
     
 // L.tileLayer.provider('CartoDB.Voyager').addTo(map);    // Create the base layers 

@@ -7,7 +7,7 @@ function loadData() {
 initiateLeaflet();
     
     
-d3.csv("SIP/data/burden_data.csv")
+d3.csv("data/burden_data.csv")
     .then(
       
         function(data) {   
@@ -17,7 +17,7 @@ d3.csv("SIP/data/burden_data.csv")
 
         });  
     
- d3.csv("SIP/data/tract_facts.csv")
+ d3.csv("data/tract_facts.csv")
     .then(
       function(data) {
           tract_facts = data;

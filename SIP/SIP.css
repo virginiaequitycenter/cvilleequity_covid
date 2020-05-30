@@ -1,24 +1,73 @@
-@import url('https://fonts.googleapis.com/css2?family=Asap&family=Mandali&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;800&display=swap');
 
 body {
-    font-family: 'Asap', sans-serif;
-    padding-top: 56px;
+    font-family: 'Open Sans', sans-serif;
 }
-
 .container-fluid { 
 	overflow: hidden; 
     margin:0;
-padding:0;
+   padding:0;
 }
 
+#titlebit {
+    padding-top: 2em;
+    padding-bottom: 2em;
+    margin-bottom:0;
+   background: rgba(0, 0, 0, 0);
+
+  
+        
+}
+
+#toptext{
+    position:relative;
+    left: 5%;
+    width: 90%;   
+    text-align: left;
+ background-color:rgba(0,0,0, 0)}
+
+#toptext h1{
+    text-align: left;
+    color: white;
+      font-weight: 600;
+
+}
+
+#spacerbit{
+    margin-bottom:0;
+   padding-top:0;
+    background-color: #484848;
+   padding-bottom:.5em;
+}
+
+
+#endbit {
+    position:relative;
+    width:100%;
+   margin:0; 
+    padding-bottom:1em;
+   padding-top:0;
+  background-image: linear-gradient(rgba(0,0,0,.9), rgba(0,0,0, .9));
+            
+}
+
+#visrow {
+    background-color:   background-color: rgba(0,0,0, .5);
+;
+    
+    
+}
 .svg-container { 
     width:100%;
 	display: inline-block;
     height: 222%; 
 	vertical-align: middle; 
 	overflow: hidden; 
-    background-color: ghostwhite;
     position: relative;
+        background-image: linear-gradient(to right, rgba(0,0,0, .01), rgba(0,0,0, .01))
+
 
 }
 
@@ -28,16 +77,16 @@ padding:0;
 	position: relative;
 	top: 0;
 	left: 0;
-    background-color: ghostwhite;
+    background-color: rgba(0,0,0, 0);
 }
 
 
 .paddingbox{
         width:100%;
-    background-color: relative; 
+    position:relative;
+    background-color: rgba(0,0,0, 0);
     padding-bottom: 100%; 
     padding: 0
-
 }
 
 
@@ -51,7 +100,7 @@ padding:0;
 .tablebox{
     width: 100%;
    padding-bottom: 10; 
-    background-color: ghostwhite;
+        background-image: linear-gradient(to right, rgba(0,0,0, .01), rgba(0,0,0, .01))
 
 }
 
@@ -63,57 +112,79 @@ padding:0;
     padding-right: 5px;
        padding-bottom: 10; 
 
-    background-color: ghostwhite;
+    background-color: rgba(0,0,0, 0);
 
 }
 
 
 @media screen and (min-width: 635px) {
 
-.svg-container {  height: calc(100vh - 56px); 
+#toptext{
+    position:relative;
+    left:10%;
+    width:80%;   
+    text-align: left;
+}
+    
+    
+.svg-container {  height: calc(100vh); 
                   overflow-y: scroll;
                   width: max(calc(45vh - 25.2px), 25%)
                }
     
     
 .paddingbox{
-    background-color: floralwhite; 
-      width: max(300px, 48%);
-    height: calc(100vh - 56px);
-    padding-bottom: 0px;
+    background-color: rgba(0,0,0, 0);
+    width: min(calc(100% - 45vh + 25.2px), 75%);
+     height: calc(100vh );
+    padding-bottom: calc(100vh );
 }
+    
     
 #map { 
-      position: fixed;
-      top: 56;
-      padding-bottom: calc(100vh - 56px);
-      width: min(calc(100% - 45vh + 25.2px), 75%);
-     }
+      position: relative;
+      width: 100%;
+              padding-bottom: calc(100vh )
 
+     }
+    
 
 }
 
-
 @media screen and (min-width: 1238px) {
+   
     
-    #map { 
-      position: fixed;
-      top: 56;
-      padding-bottom: calc(100vh - 56px);
-      width: 48%;
-     }
+#toptext{
+    position:relative;
+    left: 25%;
+    width: 50%;   
+    text-align: left;
+}
     
-  .svg-container {  height: max(55.55%, calc(100vh - 56px)); 
-                   height: calc(100vh - 56px);
+.svg-container {height: max(55.55%, calc(100vh )); 
+                   height: calc(100vh );
                   overflow-y: scroll;
                }  
     
- .tablebox{
+.paddingbox{
+   background-color: rgba(0,0,0, 0);
+      width: 48%;
+     height: calc(100vh );
+      padding-bottom: calc(100vh );
+   }    
+    
+#map { 
+      position: relative;
+      width: 100%;
+      padding-bottom: calc(100vh )
+
+     }
+    
+.tablebox{
      width: min(calc( 52% - 45vh + 25px), 27%);
-     height: calc(100vh - 56px); 
-      overflow-y: scroll;
+     height: calc(100vh ); 
+     overflow-y: scroll;
    }  
- 
     
 .tablediv{
     width: 100%;
@@ -121,14 +192,9 @@ padding:0;
     padding-top: 20px;
     padding-left: 5px;
     padding-right: 5px;
-       padding-bottom: 10; 
-
-    background-color: ghostwhite;
-    
+    padding-bottom: 10; 
     
  }
-    
-
     
 }
 
@@ -177,7 +243,7 @@ padding:0;
 
 
 .countynames{
-     font-family: 'Asap', sans-serif;
+     font-family: 'Open Sans', sans-serif;
      font-size: 48px;
      text-anchor: middle;
      dominant-baseline: middle ;
@@ -186,7 +252,7 @@ padding:0;
 
 
 .tractnames{
-     font-family: 'Asap', sans-serif;
+     font-family: 'Open Sans', sans-serif;
      font-size: 40px;
      text-anchor: end;
      dominant-baseline: middle;
@@ -202,7 +268,7 @@ padding:0;
 }
 
 .dimensions{
-         font-family: 'Asap', sans-serif;
+         font-family: 'Open Sans', sans-serif;
      font-size: 40px;
     
     
@@ -218,21 +284,24 @@ padding:0;
 
 
 .rowtitles{
-    font-weight: bold;
+    font-weight: 600;
     
 }
 
 #tableheader{
     position:relative;
     text-align: center;
-    
-      
+    padding-left: 20px;
+    padding-right:20px;
+        background-color: rgba(0,0,0, 0);
+
 }
-
-
+    
 
 #tableheader h1{
    font-size: 20px;
+font-weight: 600;
+    color:black;
     
 }
 
@@ -242,10 +311,7 @@ padding:0;
     
 }
 
-#tableheader a{
-    color: darkgrey;
-    
-}
+
 
 .tablecontent{
     position:relative;
@@ -258,10 +324,8 @@ padding:0;
 
 .variables {
     position:relative;
-    padding-right: 5px;
-    padding-left: 5px; 
-    font-size: 13px;
-
+    padding-right: 20px;
+    padding-left: 20px; 
     
 }
 
@@ -297,7 +361,6 @@ h2{text-align:center;
     width: 100px;
     left: calc(50% - 50px);
     
-    
 }
 
 .open{
@@ -312,10 +375,11 @@ h2{text-align:center;
 
 
 #methods{
-    position: absolute;
+    position: fixed;
     left:1%;
-    top: calc(56px + 1%);
+    top: calc(2vh);
     width: 98%;
+    height: 96vh;
     overflow: hidden;
     background-color: whitesmoke;
     opacity: .95;
@@ -324,7 +388,7 @@ h2{text-align:center;
     padding-right: 100px;
     overflow-y: scroll;
     border-radius: 10px;
-  border: 3px solid #292b2c;
+   border: 3px solid #292b2c;
     z-index: 1000;
 }
 
@@ -341,7 +405,7 @@ h2{text-align:center;
     width: 31.11%;  
     margin: 0;
     padding-bottom:0;
-    padding-top: calc(18.0%);
+    padding-top: calc(23.05%);
     top: 0;
     height: 1
         
@@ -372,3 +436,115 @@ h2{text-align:center;
     
 }
 
+
+
+#enterbutton {
+    position:absolute;
+    width: 300px;
+    left: calc(50% - 150px);
+    color:white;
+
+}
+
+#tableheader p {
+    font-size: 15px;    
+}
+
+#backgroundimage {
+    position: relative; 
+    width: 100%;  
+}
+
+#backgroundimage::before {
+    content: "";
+      background-image:
+    linear-gradient(
+               rgba(35, 45, 75, .97),
+
+                rgba(35, 45, 75, .97)
+
+    ),
+     url(backgroundmap.png); 
+    position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      opacity: .95;
+}
+
+#toptext p {
+    color:white;
+    
+}
+
+#navbar {
+    background-color: rgba(0,0,0, 1),
+        color: white;
+    border-bottom-style: solid;
+    border-bottom-color: white;
+    border-bottom-width:thin;
+
+}
+
+#backgroundcolor {
+  background-color: linear-gradient(
+      rgba(0,0,0, 1),
+        rgba(35, 45, 75, 1));
+    
+}
+
+
+
+.dropdown {
+        background-color: rgba(0,0,0, 0),
+}
+
+#dropdownMenu2 {
+    color:white;
+    border-style: solid;
+    border-color:white;
+}
+
+#stationary {
+    position:fixed;
+}
+
+#backgroundimage2{
+    width:100%;
+            position: relative; 
+
+}
+
+#backgroundimage2::before{
+    content: "";
+      background-image:
+    linear-gradient(
+            rgba(35, 45, 75, .95)
+              rgba(0,0,0, .95),
+    ),
+     url(backgroundmap.png); 
+    position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      opacity: .95;
+}
+
+
+#bottomtext {
+    position: relative;
+    left: 10%;
+    width: 80%;   
+    text-align: left;
+    background-color: rgba(0,0,0,0);
+}
+
+
+#bottomtext p {
+
+    color:white;
+    
+
+}

@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-   <link rel="stylesheet" type="text/css" href="SIP/SIP.css">
+   <link rel="stylesheet" type="text/css" href="SIP.css">
 
           <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -24,19 +24,21 @@
     <link rel="stylesheet" href="https://d19vzq90twjlae.cloudfront.net/leaflet-0.7/leaflet.css" />
 
     <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script type="text/javascript" src="SIP/js/load_data.js"></script>
-    <script type="text/javascript" src="SIP/js/heat_bars.js"></script>
-    <script src="SIP/js/tractsdata.js"></script>
-    <script type = "text/javascript" src = "SIP/js/tablemaker.js" ></script>
-    <script src="SIP/js/magdis.js"></script>
+    <script type="text/javascript" src="js/load_data.js"></script>
+    <script type="text/javascript" src="js/heat_bars.js"></script>
+    <script src="js/tractsdata.js"></script>
+    <script type = "text/javascript" src = "js/tablemaker.js" ></script>
+    <script src="js/magdis.js"></script>
 
-    <script type = "text/javascript" src = "SIP/js/leaflet.js"></script>
-    <script type = "text/javascript" src = "SIP/js/interaction_functions.js"></script>
-    <script src="SIP/js/leaflet-providers.js"></script>
+    <script type = "text/javascript" src = "js/leaflet.js"></script>
+    <script type = "text/javascript" src = "js/interaction_functions.js"></script>
+    <script src="js/leaflet-providers.js"></script>
 
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
 
 
+
+  <script src="//unpkg.com/leaflet-gesture-handling"></script>
 
     <title> Shelter In Place </title>
 
@@ -45,41 +47,77 @@
 <body onload="loadData()">
 
 
- <nav class="navbar fixed-top navbar-expand-md bg-dark navbar-dark"  height = "100px">
-  <!-- Brand -->
-  <a class="navbar-brand py-1" href="#" >Structural Burden or Ease of Sheltering in Place</a>
+ 
 
-  <!-- Toggler/collapsibe Button -->
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<div class="container-fluid" >
+
+<div id = "backgroundimage"> 
+
+      
+<nav class="navbar navbar-expand-md  navbar-dark" id = "navbar" height = "100px">
+            <!-- Brand -->
+           <a class="navbar-brand py-1" href="../../cvilleequity_covid/" >CVILLE COVID EQUITY</a>
+
+           <!-- Toggler/collapsibe Button -->
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+           <span class="navbar-toggler-icon"></span>
+          </button>
 
 
      <!-- Navbar links -->
   <div class="collapse navbar-collapse justify-content-between" id="collapsibleNavbar">
 
    <ul class="navbar-nav  ml-auto">
+
        
-       <li class="nav-item Home">
-        <a class="nav-link" href="index.html" > Home </a>
-      </li>
+     <div class="dropdown">
+         <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Shelter in Place
+         </button>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
+    <button class="dropdown-item" type="button">Another Story Here</button>
+    <button class="dropdown-item" type="button">Frontline Workers</button>
+    <button class="dropdown-item" type="button">Something else here</button>
+         </div>
+       </div>
        
-       <li class="nav-item active">
-        <a class="nav-link" href="" > Shelter In Place </a>
-      </li>
-       
-      <li class="nav-item">
-        <a class="nav-link" onclick="showmethods()"> How Did We Do This? </a>
-      </li>
     </ul>
 
-  </div>
+    </div>
+</nav> 
+        
+        
+        
+        
+<div class = "jumbotron jumbotron-fluid" id = "titlebit">
+    
+    <div id = "toptext">
+    <h1>How Easily Can You Shelter in Place?</h1>
+        <h4 style="color:white"> <i> We investigated how the eases and  burdens of sheltering in place are distributed across the Charlottesville region </i></h4> 
+     <br>
+   <p>
+       Building from work like UCLA’s <a href="https://challengeinequality.luskin.ucla.edu/2020/04/22/neighborhood-inequality-in-shelter-in-place-burden/">“Neighborhood Inequality in Shelter-in-Place Burden”</a> and the King County, WA <a href="https://www.kingcounty.gov/~/media/elected/executive/equity-social-justice/2020/COVID-19/King-County-Equity-Impact-Awareness-Tool.ashx?la=en">Equity Impact tool</a>, and working in partnership with community organizers and leaders, we set out to understand the disparate impact of the pandemic in our own community. This is an initial attempt to create a Shelter-in-Place index of burden or ease for the larger Charlottesville region to help decision makers, advocates, and residents better visualize the differential experiences and needs across our larger community. </p>
+        
+    <p>Emphasizing the structures that make social distancing and staying at home easier or more challenging, we created an score based on populatio density, crowded housing conditions, access to private transportation, broadband, and food, and the presence of children in the absence of school or daycare. High values represent the presence of more challenges in an area; lower values represent greater ease of sheltering in place.</p>
+        
+    <p>We've struggled with framing the structural factors that impact the experience of shelting in place around the ease experienced by some communities or around the burden experienced by others. Here, we capture a composite score that highlights the challenges -- high scores reflect greater burdens -- while recognizing that these are two sides of the same coin, the relative ease experienced by many in our region comes at the expense of neighbors.</p>
+        
+    <p> To better contextualize the neighborhoods described, we also detail various dimensions of the social determinants of health for each tract.  Social determinants are external factors that affect our well-being -- whether we have access to economic opportunities and quality schooling, resources in our communities and support structures in our homes and neighborhoods, safe workplaces and clean water. Many communities in the U.S. are marked by structural racism, so these conditions are distributed unequally across neighborhoods and, in turn, contribute to racial disparities in health and well-being. The Charlottesville region was built upon a patchwork of former plantations, racial covenants served as the policy mechanism to reassert those inequities into the post-emancipation landscape, and the area remains one of the hardest places in the country to build wealth as a person of color. In a pandemic, the ways in which these inequities continue to harm our entire community become strikingly clear.</p>
+        
+   <br>
+    <button type="button" class="btn btn-outline-light" id = "enterbutton" onclick = "showmethods()">Read About Our Methods </button>
+        <br>
+        <br>
+    </div>
+    
+ </div>  
+    
+ </div>    
+    
+    
+<div class = "jumbotron-fluid" id = "spacerbit"> </div>  
 
-</nav>
-
-<div class="container-fluid"  >
-
-  <div class = "flex-row d-flex flex-wrap">
+<div class = "flex-row d-flex flex-wrap" id = "visrow">
 
     <div class = "svg-container">
          <svg id = "projectscontainer" class = "svg-content"  viewBox="0 0 1800 4000" width = 100% preserveAspectRatio="none" class="svg-content">
@@ -95,37 +133,57 @@
       <div class = "tablediv">
 
           <div id = "tableheader">
-              <h1 >Social Determinants of Health  <a href = "https://www.cvilletomorrow.org/articles/determined-stories-of-resilience-in-a-broken-ecosystem/" target="_blank">  <i class="fas fa-info-circle" > </i>  </a> </h1 >
-            <p> Click on the Map for Tract Details </p>
-
+              
+              <h1> Social Determinants of Health  </h1>
+              
+             
+              <br style = "font-size:12px">
+               <h6> <i> Click on the Map for Your Tract's Details  </i></h6>
+            
           </div>
 
-          <div class = "tablecontent"> </div>
+    <div class = "tablecontent"> </div>
         
-        <div class = "variables">    </div>
-          <p>Social determinants of health are external factors that affect our well-being -- whether we have access to economic opportunities and quality schooling, resources in our communities and support structures in our homes and neighborhoods, safe workplaces and clean water. Many communities in the U.S. are marked by structural racism, so these conditions are distributed unequally across neighborhoods and, in turn, contribute to racial disparities in health and well-being. The Charlottesville region was built upon a patchwork of former plantations, racial covenants served as the policy mechanism to reassert those inequities into the post-emancipation landscape, and the area remains one of the hardest places in the country to build wealth as a person of color. In a pandemic, the ways in which these inequities continue to harm our entire community become strikingly clear. </p>
+          <div id = "tableheader">
+
           
-        <p><b>Resources</b></p>
-          <p>For an in-depth look at how social determinants of health shape our local communities, see Jordy Yager's and Sarad Davenport's series, <a href = "https://www.cvilletomorrow.org/articles/determined-stories-of-resilience-in-a-broken-ecosystem/" target="_blank">  "Determined: Stories of resilience in a broken ecosystem"</a></p>
           
-             <p>See more about how we did this at the link above. If you're interested in the detils, all of the code is available on <a href="https://github.com/virginiaequitycenter/cvilleequity_covid">our GitHub!</a></p>
+        <h1> Resources </h1>
+            
+          <p style="text-align:left">For an in-depth look at how social determinants of health shape our local communities, see Jordy Yager's and Sarad Davenport's series, <a href = "https://www.cvilletomorrow.org/articles/determined-stories-of-resilience-in-a-broken-ecosystem/" target="_blank">  "Determined: Stories of resilience in a broken ecosystem"</a></p>
+          
+        <p style="text-align:left">See more about how we did this at the link above. If you're interested in the detils, all of the code is available on <a href="https://github.com/virginiaequitycenter/cvilleequity_covid">our GitHub!</a></p>
+
+        </div>
 
     </div>
-
-    </div>
-
+          
+           
+          </div>
 
 
 </div>
 
 
 
-
-
+<div class = "jumbotron-fluid" id = "spacerbit"></div>  
+ 
+<div class = "jumbotron-fluid" id = "endbit" >
+    <div id = "bottomtext">
+        <br>
+        <p>
+The mission of the UVA Democracy Initiative Center for the Redress of Inequity through. Community-Engaged Scholarship is to tangibly redress racial and economic inequity in university communities by advancing a transformative approach to the fundamental research mission, which will, in turn, reform institutional values, pedagogy, and operations. For more on our other action-oriented projects, <a href = "http://virginiaequitycenter.org/"> click here.</a>  </p>
+    </div>
 </div>
-
+    
+    
 <div id = "methods" class = "closed">
+<b> <h2>  Purpose </h2> </b>
 
+    <p>
+The COVID-19 crisis has disrupted lives across our community. The impact of shelter in place orders, school and business closures, and health burdens are felt everywhere, and yet they are not felt everywhere in equal measure. Inspired by work like UCLA’s <a href="https://challengeinequality.luskin.ucla.edu/2020/04/22/neighborhood-inequality-in-shelter-in-place-burden/">“Neighborhood Inequality in Shelter-in-Place Burden”</a> and the King County, WA <a href="https://www.kingcounty.gov/~/media/elected/executive/equity-social-justice/2020/COVID-19/King-County-Equity-Impact-Awareness-Tool.ashx?la=en">Equity Impact tool</a>, and working in partnership with community organizers and leaders, we set out to understand the inequities of the pandemic in our own community. This is an initial attempt to create a Shelter-in-Place index of burden for the larger Charlottesville region to help decision makers, advocates, and residents better visualize the differential needs and experiences across our larger community.
+    </p>
+    <br>
 <b> <h2> Indicators</h2> </b>
 
         The ability to shelter in place safely and comfortably, to practice social distancing effectively and freely, varies across space, mirroring pre-existing structural inequalities. To capture these variations, we identified a set of indicators representing access to space and resources and defining environments and constraints faced by residents. These include: </p>
@@ -163,7 +221,15 @@ To summarize the potentially compounding challenges generated by dense spaces, o
 For the census tracts within our region, each measure is normalized to range between 0 and 1, with 1 representing the highest presence of burden -- the greatest density, the highest percent of household that are overcrowded, have no broadband subscription, no car, no nearby supermarket, and the highest percent of families with young children -- and 0 representing the least burden. These normalized scores for each measure are added together to create the index, which can range from 0 to 6.
 </p> 
     
-    <br/>
+<p>   
+To better compare the burden or ease of sheltering in place across populations, we analyze the average income, educational attainment, and homeownership, the average percent of people of color and who are immigrants, and the average percent of the population with health insurance coverage and the life expectancy across census tracts.
+</p>
+  <ul>
+       <li> In places where there is relative ease of sheltering in place, the average household income is much higher, $90K compared to $54K in tracts with the highest burden; similarly, the proportion who rent their homes versus own their homes is much higher in areas with a higher shelter in place burden score. </li>
+   <li> In areas where there is relative ease of sheltering in place, the population is considerably more white -- 85% -- compared to ares where the burden is higher -- 62%. The percent of residents who are immigrants is also twice as high in high burden areas than in low burden tracts.</li>
+       <li>The percentage of the population with health insurance is slightly higher in areas where the burden of sheltering place is lower; similarly, the average life expectancy is slightly higher in places with a lower burden score.</li>
+    </ul>
+    <br>
 
 
     <b> <h2>  Sources </h2> </b>
@@ -188,11 +254,11 @@ All indicators, except low food access and life expectancy, are taken directly f
     <li> Low food access comes from the <a href="https://www.ers.usda.gov/data-products/food-access-research-atlas/">USDA Food Access Research Atlas</a>, based on 2010-2014 American Community Survey data and 2015 Directory of Stores. It is not clear to us that this captures food access well in our region. </li>
     <li> Life expectancy estimates are from the <a href="https://www.cdc.gov/nchs/nvss/usaleep/usaleep.html">U.S. Small-area Life Expectancy Estimates Project</a>, estimating life expectancy at birth for the period 2010-2015.</li>
 </ul>
-    <br/>
+    <br>
 
     <button type="button" class="btn btn-secondary" id = "Exitbutton" onclick = "closemethods()">Close</button>
-
-    <br/>
+    <br>
+    <br>
 
 </div>
 
