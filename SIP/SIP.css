@@ -298,7 +298,7 @@ body {
 }
     
 
-#tableheader h1{
+#tablecolumn h1{
    font-size: 20px;
 font-weight: 600;
     color:black;
@@ -547,4 +547,20 @@ h2{text-align:center;
     color:white;
     
 
+}
+
+#tablecolumn {
+        position:relative;
+    text-align: center;
+    padding-left: 20px;
+    padding-right:20px;
+        background-color: rgba(0,0,0, 0);
+}
+
+h6 {
+    font-size:15px;
+}
+
+#tableheader {
+line-height:15px;
 }
