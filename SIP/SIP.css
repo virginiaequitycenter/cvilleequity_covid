@@ -442,7 +442,6 @@ h2{text-align:center;
     position:absolute;
     width: 300px;
     left: calc(50% - 150px);
-    color:white;
 
 }
 
@@ -501,7 +500,6 @@ h2{text-align:center;
 }
 
 #dropdownMenu2 {
-    color:white;
     border-style: solid;
     border-color:white;
 }
