@@ -28,7 +28,6 @@ var tablehead = table.append("thead")
      .append("tr")
      .attr("class", "tablehead")
     
-    
 tablehead.selectAll("th")
        .data(mycolumns)
      .enter()
@@ -58,13 +57,11 @@ var cellcontent = tablerows.selectAll("td")
          .append("td")
          .text(function(d) {return d.Value})
     
-
-    
 var header = d3.selectAll("#tableheader")
-    
 
+var tableheader = table_data[[0]]["NAME"]
+tableheader = tableheader.substring(0, tableheader.length - 10)
 
-var tableheader = table_data[[0]]["NAME"]    
 header.selectAll("h3")
       .text(function() {return  tableheader })
     

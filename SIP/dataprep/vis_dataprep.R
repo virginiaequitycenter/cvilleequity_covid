@@ -158,11 +158,12 @@ visdata_ease %>%
 # ....................................................
 # 3. Generate SDH/context data ----
 # This data goes in the tract charts
-relabeler <- data.frame(Domain = c("badegreeE", "life_expE",  "hhincE"), 
-                        Label = c("Have Bachelors Degree", "Average Life Expectancy", "Median Household Income"))
-
+relabeler <- data.frame(Domain = c("badegreeE", "life_expE",  "hhincE", "whiteE"), 
+                        Label = c("Have Bachelors Degree", "Average Life Expectancy", "Median Household Income", "% Pop White"),
+                        Order = c(3, 2, 1, 4))
+tract_facts <-
 tract_data %>%
-  select(GEOID, NAME, badegreeE, life_expE, hhincE) %>%
+  select(GEOID, NAME, badegreeE, life_expE, hhincE, whiteE) %>%
   gather(Domain, Number, -c(GEOID, NAME)) %>%
   inner_join(relabeler) %>%
   mutate(COUNTYFP = substr(GEOID, 3, 5)) %>%
@@ -178,18 +179,21 @@ tract_data %>%
   select(GEOID, CountyName, NAME, Label, 
          `Tract` =  Number,
          `County` = CountyMedian, 
-         `Region` =  AreaMedian ) %>%
+         `Region` =  AreaMedian,
+         Order) %>%
   arrange(GEOID, Label) %>%
-  gather(Stat, Value, -c(Domain, GEOID, CountyName, NAME, Label)) %>% 
+  gather(Stat, Value, -c(Domain, GEOID, CountyName, NAME, Label, Order)) %>% 
   mutate(Value =
            case_when(
              (Domain == "badegreeE"  ) ~ paste0(Value, "% of Adults"),
              (Domain == "life_expE") ~ paste0(Value, " Years"),
              (Domain == "hhincE") ~ paste0("$",format(round(as.numeric(Value), 0), big.mark=",")),
+             (Domain == "whiteE"  ) ~ paste0(Value, "% of Pop")
            )
-  ) %>% 
+  )  %>%
+  arrange(Order)
 #  write.csv(. , file = "../Visualization_Scripts/SIP_Burden/data/tract_facts.csv")
-  write.csv(., file = "../cvilleequity_covid/SIP/data/tract_facts.csv")
+  write.csv( tract_facts, file = "../data/tract_facts.csv")
 
 
 # ....................................................
