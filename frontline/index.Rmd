@@ -9,7 +9,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, error = FALSE)
 ```
 
 
@@ -44,8 +44,25 @@ fl <- fl %>%
                              "Male", "Female", "Insured", "Uninsured")))
 ```
 
-Prior to the COVIC crisis, more than 26,000 workers were employed in the Charlottesville region[^1] in six broad industries that have been serving on the frontlines of support, sustenance, and care since the pandemic. They make up 21 percent of all workers in our area and include physicians and nurses, grocery store employees and convenience store clersk, warehouse workers and bus drives, and cleaning services, among others. They have always been essential, maintaining services and performing work on which we all depend; they have often been underpaid and underappreciated. In the current health crisis, they are too often under protected as well.
+# Introduction 
 
+Prior to the COVID crisis, more than 26,000 workers were employed in the Charlottesville region[^1] in six broad industries that have been serving on the frontlines of support, sustenance, and care since the pandemic. They make up 21 percent of all workers in our area and include physicians and nurses, grocery store employees and convenience store clerks, warehouse workers and bus drivers, and cleaning services, among others. They have always been essential, maintaining services and performing work on which we all depend; they have often been underpaid and underappreciated. In the current health crisis, they are too often under protected as well.
+
+## Key Findings
+
+Overall
+
+* People of color make up 29 percent of Frontline workers, compared to 23 percent of the overall workforce; this disproportionality is largest for Black residents, who make up 13 percent of all workers and 22 percent of frontline workers.
+* Though men and women make up equal shares of the overall workforce, 66 percent of frontline workers are women.
+
+By Industry
+
+* While frontline workers as a whole are disproportionately people of color, the differences are particularly stark in two industries: (1) Building Cleaning Services, where 25 percent of the workforce is Hispanic, compared to 4 percent overall, and another 23 percent of the workforce is Black, compared to 13 percent overall and (2) Public Transit, where a full 61 percent of the workforce is Black, compared to 13 percent overall.
+* Within all frontline industries except Health Care, workers are less likely to have a college degree relative to the overall workforce (57 percent); the differences are especially big in Grocery, Convenience, and Drug Stores (82 percent), Trucking, Warehouse, and Postal Service (94 percent), Building Cleaning Services (91 percent), and Public Transit (93 percent).
+* Foreign born residents are 28 percent of the workforce in Building Cleaning Services, nearly three times their proportion than in the overall workforce.
+* While 10 percent of workers in our region lack health insurance, the proportions are notably higher among frontline workers in Building Cleaning Services (34 percent), and Grocery, Convenience, and Drug Stores, in Trucking, Warehouse, and Postal Service, and in Child Care and Social Services (15 percent each).
+
+# Frontline Workers
 ```{r}
 # total number industry
 fl <- fl %>% 
@@ -84,9 +101,9 @@ fl %>% group_by(Job) %>% slice(1) %>%
 
 ## Characteristics of Frontline Workers
 
-Understanding who these workers are is necessary for developing and implementing protections. This work, modeled after analysis by  the Center for Economic and Policy Research (see a description of the [methodology below](#methods)). It describes the characteristics of frontline workers in the Charlottesville region, revealing ongoing economic and social inequities between knowledge economy workers who can work-from-home and essential workers on the frontlines, where they have greater exposure to the virus, who are disproportinately people of color, women, and residents without a college degree. 
+Understanding who these workers are is necessary for developing and implementing protections. This work, modeled after analysis by the [Center for Economic and Policy Research](https://cepr.net/a-basic-demographic-profile-of-workers-in-frontline-industries/) (see a description of the [methodology below](#methods)). It describes the characteristics of frontline workers in the Charlottesville region, revealing ongoing economic and social inequities between knowledge economy workers who can work-from-home and essential workers on the frontlines, where they have greater exposure to the virus, who are disproportinately people of color, women, and residents without a college degree. 
 
-```{r fig.width = 8, fig.height = 5}
+```{r fig.width = 8, fig.height = 6.5}
 # number/percent overall by key demographics
 demo_comparisons <-
 fl %>%  
@@ -119,6 +136,11 @@ fl %>%
         panel.border = element_blank()
 )
 
+# WHY 
+```
+
+```{r fig.width = 8, fig.height = 5}
+
 more_demo_comps <- fl %>%  
   filter(Job %in% c("Total", "All Workers")) %>% 
   filter(Demographic %in% c("Foreign born", "Gender", "Health Insurance")) %>% 
@@ -149,22 +171,20 @@ more_demo_comps <- fl %>%
         panel.border = element_blank()
 )
 
-# WHY 
 ```
-
 Key findings:
 
-* People of color make up 29 percent of Fronline workers, compared to 23 percent of the overall workforce; this disproportionality is largest for Black residents, who make up 13 percent of all workers and 22 percent of frontline workers.
-* The age distribution of frontline workers is similar to that of all workers, though young adults -- those aged 25-34 -- are somwhat overrpresented on the frontlines.
+* People of color make up 29 percent of Frontline workers, compared to 23 percent of the overall workforce; this disproportionality is largest for Black residents, who make up 13 percent of all workers and 22 percent of frontline workers.
+* The age distribution of frontline workers is similar to that of all workers, though young adults -- those aged 25-34 -- are somwhat overrepresented on the frontlines.
 * While 44 percent of all workers have a college degree or more, only 37 percent of frontline workers have a college degree.
 * Though men and women make up equal shares of the overall workforce, 66 percent of frontline workers are women.
 * As a group, frontline workers are no more likey to be immigrants or to lack health insurance compared to all workers.
 
-However, Several of these differences vary widely across industries.
+However, several of these differences vary widely across industries.
 
 ## Frontline Workers by Industry
 
-The characteristics of fronline workers differ across the included industries -- health care workers, in particular, are more likely to have college degrees and health insurance than the overall workforce, while workers in other industries fare much worse. The following analysis provides the same demographic profile as above separately for each of the six included industries.
+The characteristics of frontline workers differ across the included industries -- health care workers, in particular, are more likely to have college degrees and health insurance than the overall workforce, while workers in other industries fare much worse. The following analysis provides the same demographic profile as above separately for each of the six included industries.
 
 ### Race and Ethnicity
 
@@ -176,7 +196,7 @@ fl <- fl %>%
 tot7 <- fl %>% filter(Demographic == "Race/Ethnicity" & Job != "All Workers") %>% 
   select(Job, total) %>% group_by(Job) %>% slice(1)
 
-tot7_race <-
+flind_race <-
 fl %>% 
   filter(Demographic == "Race/Ethnicity") %>% 
   group_by(Job, Demographic) %>%
@@ -185,12 +205,12 @@ fl %>%
   mutate(display = ifelse(percent > 5, paste0(round(percent),"%"), "") )
   
   
-  ggplot(tot7_race, aes(x = Job, y = percent, fill = Level)) +
+  ggplot(flind_race, aes(x = Job, y = percent/100, fill = Level)) +
   geom_bar(position="fill", stat="identity", alpha = .8, colour = "white") +
-  geom_text(data = tot7_race,
+  geom_text(data = flind_race,
             aes(x = Job, label = display, y = height), color = "Black", alpha = 1, hjust =   .5, size = 3) +
     
-     geom_text(data = tot7_race %>%
+     geom_text(data = flind_race %>%
                          group_by(Job) %>%
                  slice(1),
           aes(x = Job, label = paste0("Total:\n", prettyNum(total, big.mark = ",", trim=TRUE)) , y = 1.01), color = "Black", alpha = 1, hjust = 0, size = 3) +
@@ -198,7 +218,7 @@ fl %>%
   coord_cartesian(clip = 'off') +
 
   scale_x_discrete(labels = function(x) str_wrap(x, width = 21)) +
-  scale_y_continuous(labels = function(x) paste0(round(x*100), "%")) +
+  scale_y_continuous(labels = function(x) paste0(round(x*100), "%"),  expand = c(0, 0 ), limits = c(0, 1.08)) +
 
   coord_flip() + 
   scale_fill_manual(values = pal2,
@@ -220,71 +240,150 @@ fl %>%
 
 While frontline workers as a whole are disproportionately people of color, the differences are particularly stark in two industries: 
 
-* Cleaning services, where 25 percent of the workforce is Hispanic, compared ot 4 percent overall, and another 23 percent of the workforce is Black, compared to 13 percent overall.
+* Building Cleaning Services, where 25 percent of the workforce is Hispanic, compared to 4 percent overall, and another 23 percent of the workforce is Black, compared to 13 percent overall.
 * Public transt, where a full 61 percent of the workforce is Black, compared to 13 percent overall.
 
 ### Age Groups
 
-```{r}
+```{r fig.width = 8, fig.height = 5}
 # age
-fl %>% filter(Demographic == "Age Group") %>% 
-  ggplot(aes(x = Job, y = percent, fill = Level)) +
-  geom_col() + coord_flip() + 
+flind_age <-
+fl %>% 
+  filter(Demographic == "Age Group") %>% 
+  group_by(Job, Demographic) %>%
+  arrange(Job, Demographic, desc(Level) )%>%
+  mutate(height = (cumsum(percent) - percent/2)/100) %>%
+  mutate(display = ifelse(percent > 5, paste0(round(percent),"%"), "") )
+  
+  
+ggplot(flind_age, aes(x = Job, y = percent/100, fill = Level)) +
+  geom_bar(position="fill", stat="identity", alpha = .8, colour = "white") +
+  geom_text(data = flind_age,
+            aes(x = Job, label = display, y = height), color = "Black", alpha = 1, hjust =   .5, size = 3) +
+  geom_text(data = flind_age %>% group_by(Job) %>% slice(1),
+          aes(x = Job, label = paste0("Total:\n", prettyNum(total, big.mark = ",", trim=TRUE)) , y = 1.01), color = "Black", alpha = 1, hjust = 0, size = 3) +
+  
+  coord_cartesian(clip = 'off') +
+
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 21)) +
+  scale_y_continuous(labels = function(x) paste0(round(x*100), "%"),  expand = c(0, 0 ), limits = c(0, 1.08)) +
   scale_fill_manual(values = pal2,
                     name = element_blank(),
                     guide = guide_legend(reverse = TRUE)) +
-  labs(title = "Frontline Workers by Age", y = "Percent") +
+  coord_flip() + 
+  
+  labs(title = "Frontline Industries by Age", y = "Percent") +
   # annotate("text", x = 1:7, y = 110, label = tot7$total, size = 3) +
-  theme(axis.title.y = element_blank(),
-        legend.position="bottom")
+ theme_bw()+
+  theme(
+        axis.title = element_blank(),
+        legend.position="bottom", 
+        legend.title=element_blank(),
+        axis.line =  element_line(color  = "white"),
+        strip.background = element_blank(),
+        panel.border = element_blank()
+)
 
 ```
-
-Looking at the age of workers by industry
+Looking at the age of workers by industry,
 
 * Our youngest workers, aged 16-24, are overrepresented in frontline retail positions, making up 20 percent of the Grocery, Convenience, and Drug Stores industries compared to their 12 percent of the overall workforce.
-* Young adult workers, 25-34, are 22 percent of all workers, but 28 percent of workers in Building Cleaning Services and 28 percent of workers in Health Care.
+* Young adult workers, 25-34, are 22 percent of all workers, but 38 percent of workers in Building Cleaning Services and 28 percent of workers in Health Care.
 * Workers aged 55 and over compose 44 percent of workers in Public Transit, and 33 percent of workers in Building Cleaning Services, though they are 25 percent of the overall workforce.
 
-## Educational Attainment
+### Educational Attainment
 
-```{r}
+```{r fig.width = 8, fig.height = 5}
 # education
+flind_educ <- 
 fl %>% filter(Demographic == "Education level") %>% 
   mutate(Level = factor(Level, c("Advanced", "College", "Some college", "HS", "LTHS"))) %>% 
-  ggplot(aes(x = Job, y = percent, fill = Level)) +
-  geom_col() + coord_flip() + 
-  scale_fill_manual(values = pal2, 
+  group_by(Job, Demographic) %>%
+  arrange(Job, Demographic, desc(Level) )%>%
+  mutate(height = (cumsum(percent) - percent/2)/100) %>%
+  mutate(display = ifelse(percent > 5, paste0(round(percent),"%"), "") )
+  
+  
+  
+ggplot(flind_educ, aes(x = Job, y = percent/100, fill = Level)) +
+  geom_bar(position="fill", stat="identity", alpha = .8, colour = "white") +
+  geom_text(data = flind_educ,
+            aes(x = Job, label = display, y = height), color = "Black", alpha = 1, hjust =   .5, size = 3) +
+  geom_text(data = flind_educ %>% group_by(Job) %>% slice(1),
+          aes(x = Job, label = paste0("Total:\n", prettyNum(total, big.mark = ",", trim=TRUE)) , y = 1.01), color = "Black", alpha = 1, hjust = 0, size = 3) +
+  
+  coord_cartesian(clip = 'off') +
+
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 21)) +
+  scale_y_continuous(labels = function(x) paste0(round(x*100), "%"),  expand = c(0, 0 ), limits = c(0, 1.08)) +
+  scale_fill_manual(values = pal2,
                     name = element_blank(),
                     guide = guide_legend(reverse = TRUE)) +
-  labs(title = "Frontline Workers by Education", y = "Percent") +
+  coord_flip() + 
+  
+  labs(title = "Frontline Industries by Education", y = "Percent") +
   # annotate("text", x = 1:7, y = 110, label = tot7$total, size = 3) +
-  theme(axis.title.y = element_blank(),
-        legend.position="bottom")
+ theme_bw()+
+  theme(
+        axis.title = element_blank(),
+        legend.position="bottom", 
+        legend.title=element_blank(),
+        axis.line =  element_line(color  = "white"),
+        strip.background = element_blank(),
+        panel.border = element_blank()
+)
 
 ```
 
 Within all frontline industries except Health Care, workers are less likely to have a college degree relative to the overall workforce. Some of the differences are especially big. In the overall workforce, 57 percent of workers do not have a college degree, compared to:
 
-*  82 percent of the workers in the Grocery, Convenience, and Drug Stores insdustries,
+*  82 percent of the workers in the Grocery, Convenience, and Drug Stores industries,
 * 94 percent of the workers in Trucking, Warehouse, and Postal Service industries, 
 * 91 percent of workers in Building Cleaning Services, and
 * 93 percent of workers in Public Transit.
 
-## Foreign Born
+### Foreign Born
 
 ```{r}
 # immigrant status
-fl %>% filter(Demographic == "Foreign born") %>% 
-  ggplot(aes(x = Job, y = percent, fill = Level)) +
-  geom_col() + coord_flip() + 
+flind_for <- 
+fl %>% filter(Demographic ==  "Foreign born") %>% 
+  group_by(Job, Demographic) %>%
+  arrange(Job, Demographic, desc(Level) )%>%
+  mutate(height = (cumsum(percent) - percent/2)/100) %>%
+  mutate(display = ifelse(percent > 5, paste0(round(percent),"%"), "") )
+
+
+
+
+  ggplot(flind_for, aes(x = Job, y = percent/100, fill = Level)) +
+  geom_bar(position="fill", stat="identity", alpha = .8, colour = "white") +
+  geom_text(data = flind_for,
+            aes(x = Job, label = display, y = height), color = "Black", alpha = 1, hjust =   .5, size = 3) +
+  geom_text(data = flind_for %>% group_by(Job) %>% slice(1),
+          aes(x = Job, label = paste0("Total:\n", prettyNum(total, big.mark = ",", trim=TRUE)) , y = 1.01), color = "Black", alpha = 1, hjust = 0, size = 3) +
+  
+  coord_cartesian(clip = 'off') +
+
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 21)) +
+  scale_y_continuous(labels = function(x) paste0(round(x*100), "%"),  expand = c(0, 0 ), limits = c(0, 1.08)) +
+
   scale_fill_manual(values = pal2[c(2,4)], 
                     name = element_blank(),
                     guide = guide_legend(reverse = TRUE)) +
+    
+  coord_flip() +
   labs(title = "Frontline Workers by Immigrant Status", y = "Percent") +
   # annotate("text", x = 1:7, y = 110, label = tot7$total, size = 3) +
-  theme(axis.title.y = element_blank(),
-        legend.position="bottom")
+ theme_bw()+
+  theme(
+        axis.title = element_blank(),
+        legend.position="bottom", 
+        legend.title=element_blank(),
+        axis.line =  element_line(color  = "white"),
+        strip.background = element_blank(),
+        panel.border = element_blank()
+)
 
 ```
 
@@ -292,43 +391,96 @@ Residents not born in the United States (note, this is not citizenship status, b
 
 * Foreign born residents are 28 percent of the workforce in Building Cleaning Services, nearly three times their proportion than in the overall workforce.
 
-## Gender
+### Gender
 
 ```{r}
 # gender
-fl %>% filter(Demographic == "Gender") %>% 
-  ggplot(aes(x = Job, y = percent, fill = Level)) +
-  geom_col() + coord_flip() + 
+flind_gend <- 
+fl %>% filter(Demographic ==  "Gender") %>% 
+  group_by(Job, Demographic) %>%
+  arrange(Job, Demographic, desc(Level) )%>%
+  mutate(height = (cumsum(percent) - percent/2)/100) %>%
+  mutate(display = ifelse(percent > 5, paste0(round(percent),"%"), "") )
+
+
+  ggplot(flind_gend, aes(x = Job, y = percent/100, fill = Level)) +
+  geom_bar(position="fill", stat="identity", alpha = .8, colour = "white") +
+  geom_text(data = flind_gend,
+            aes(x = Job, label = display, y = height), color = "Black", alpha = 1, hjust =   .5, size = 3) +
+  geom_text(data = flind_gend %>% group_by(Job) %>% slice(1),
+          aes(x = Job, label = paste0("Total:\n", prettyNum(total, big.mark = ",", trim=TRUE)) , y = 1.01), color = "Black", alpha = 1, hjust = 0, size = 3) +
+  
+  coord_cartesian(clip = 'off') +
+
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 21)) +
+  scale_y_continuous(labels = function(x) paste0(round(x*100), "%"),  expand = c(0, 0 ), limits = c(0, 1.08)) +
+
   scale_fill_manual(values = pal2[c(2,4)], 
                     name = element_blank(),
                     guide = guide_legend(reverse = TRUE)) +
+    
+  coord_flip() +
   labs(title = "Frontline Workers by Gender", y = "Percent") +
   # annotate("text", x = 1:7, y = 110, label = tot7$total, size = 3) +
-  theme(axis.title.y = element_blank(),
-        legend.position="bottom")
+ theme_bw()+
+  theme(
+        axis.title = element_blank(),
+        legend.position="bottom", 
+        legend.title=element_blank(),
+        axis.line =  element_line(color  = "white"),
+        strip.background = element_blank(),
+        panel.border = element_blank()
+)
 
 ```
 
-While women compose half of all workers in our region, they are 66 percent of workers in Frontline industries. Women are distinctly overrepresented in several industries:
+While women compose half of all workers in our region, they are 66 percent of workers in frontline industries. Women are distinctly overrepresented in several industries:
 
 * Women make up 73 percent of workers in Health Care,
 * Women make up 90 percent of workers in Child Care and Social Services, and
 * Women make up 61 percent of workers in Building Cleaning Services.
 
-## Health Insurance
+### Health Insurance
 
 ```{r}
 # health insurance
-fl %>% filter(Demographic == "Health Insurance") %>% 
-  ggplot(aes(x = Job, y = percent, fill = Level)) +
-  geom_col() + coord_flip() + 
+# gender
+flind_ins <- 
+fl %>% filter(Demographic ==  "Health Insurance") %>% 
+  group_by(Job, Demographic) %>%
+  arrange(Job, Demographic, desc(Level) )%>%
+  mutate(height = (cumsum(percent) - percent/2)/100) %>%
+  mutate(display = ifelse(percent > 5, paste0(round(percent),"%"), "") )
+
+
+  ggplot(flind_ins, aes(x = Job, y = percent/100, fill = Level)) +
+  geom_bar(position="fill", stat="identity", alpha = .8, colour = "white") +
+  geom_text(data = flind_ins,
+            aes(x = Job, label = display, y = height), color = "Black", alpha = 1, hjust =   .5, size = 3) +
+  geom_text(data = flind_ins %>% group_by(Job) %>% slice(1),
+          aes(x = Job, label = paste0("Total:\n", prettyNum(total, big.mark = ",", trim=TRUE)) , y = 1.01), color = "Black", alpha = 1, hjust = 0, size = 3) +
+  
+  coord_cartesian(clip = 'off') +
+
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 21)) +
+  scale_y_continuous(labels = function(x) paste0(round(x*100), "%"),  expand = c(0, 0 ), limits = c(0, 1.08)) +
+
   scale_fill_manual(values = pal2[c(2,4)], 
                     name = element_blank(),
                     guide = guide_legend(reverse = TRUE)) +
+    
+  coord_flip() +
   labs(title = "Frontline Workers by Health Insurance", y = "Percent") +
   # annotate("text", x = 1:7, y = 110, label = tot7$total, size = 3) +
-  theme(axis.title.y = element_blank(),
-        legend.position="bottom")
+ theme_bw()+
+  theme(
+        axis.title = element_blank(),
+        legend.position="bottom", 
+        legend.title=element_blank(),
+        axis.line =  element_line(color  = "white"),
+        strip.background = element_blank(),
+        panel.border = element_blank()
+)
 
 ```
 
@@ -337,9 +489,9 @@ Among all workers in our region, 90 percent have health insurance and 10 percent
 * Within Building Cleaning Services, 34 percent of workers lack health insurance.
 * About 15 percent of workers in Grocery, Convenience, and Drug Stores, in Trucking, Warehouse, and Postal Service, and in Child Care and Social Services lack health insurance.
 
-# Frontline Workers Need Our Support
+## Frontline Workers Need Our Support
 
-(Want to add something here that connects to the charter -- would love ideas for language!)
+TBA
 
 # Methodology {#methods}
 
@@ -365,6 +517,8 @@ The [Bay Area analysis](https://bayareaequityatlas.org/essential-workers) began 
 With community expertise and input, we could supplement and revise this analysis with additional industries as well.
 
 As both CEPR and the Bay Area anaylsis observe, this approach includes all workers (16 and above) in the relevant industry but no workers in frontline occupations  outside of these chosen categories. This means the estimates "exclude some workers in occupations (but not industries) that are clearly on the frontlines, while also including some workers who are not in frontline occupations, even though they are in frontline industries." As an example, a police officer is a frontline occupation in a non-frontline industry; a school bus driver is a non-frontline occupation when schools are closed, but in a frontline industry. "Still," CPER notes, "the vast majority of workers in the six frontline industries are frontline workers."
+
+All of the code to produce this report is available on our GitHub page.
 
 [^1]: The Charlottesville region is defined here as the Thomas Jefferson Area Planning District, which consists of the City of Charlottesville, Albemarle County, Fluvanna County, Green County, Louisa County, and Nelson County. 
 
