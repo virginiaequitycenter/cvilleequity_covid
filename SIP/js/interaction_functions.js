@@ -86,7 +86,6 @@ var mousemove = function(d) {
   
   
   
-  
 
 // Three function that change the tooltip when user hover / move / leave a cell
 
@@ -178,6 +177,20 @@ function closemethods(){
 }
 
 
+var showsdoh = function(d) {
+   d3.select("#sdoh").classed("closed", false);
+    
+     d3.select("#sdoh").style("left", d3.event.pageX -50  + "px")
+      .style("top", d3.event.pageY -50 + "px")
+    
+}
+
+function closesdoh(){
+   d3.selectAll("#sdoh").classed("closed", true) ;
+    
+}
+
+
 /////////////////////////////
 
 var mouseoverinfo = function(d) {
@@ -202,6 +215,9 @@ var mouseleaveinfo = function(d) {
       .style("visibility", "hidden");
 
 }
+
+//////////////////
+
 
 
 

@@ -392,12 +392,65 @@ h2{text-align:center;
     z-index: 1000;
 }
 
+#sdoh {
+    position: fixed;
+    width: 25%;
+    overflow: hidden;
+    background-color: whitesmoke;
+    opacity: .95;
+    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    overflow-y: scroll;
+    border-radius: 10px;
+   border: 3px solid #292b2c;
+    z-index: 1000;
+
+}
+
 @media screen and (max-width: 635px) {
      #methods{
   padding: 20px;
-    }
+    }  
+    
+#sdoh {
+    position: absolute;
+    top: 5vh;
+    right:2%;
+    width: 25%;
+    overflow: hidden;
+    background-color: whitesmoke;
+    opacity: .95;
+    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    overflow-y: scroll;
+    border-radius: 10px;
+   border: 3px solid #292b2c;
+    z-index: 1000;
+
+}
+    
+    
+    
+    
+    
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #colorswitcherdiv {
     position: absolute;
@@ -562,3 +615,10 @@ h6 {
 #tableheader {
 line-height:15px;
 }
+
+.popove{
+    max-width: 100%; /* Max Width of the popover (depending on the container!) */
+    
+}
+
+

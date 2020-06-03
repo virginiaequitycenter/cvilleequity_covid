@@ -36,9 +36,18 @@
 
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
 
-
-
   <script src="//unpkg.com/leaflet-gesture-handling"></script>
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover({
+        placement : 'top',
+        trigger : 'hover',
+        container: 'body'
+    });
+});
+</script>
+      
 
     <title> Shelter In Place </title>
 
@@ -131,7 +140,7 @@
 
           <div id = "tablecolumn">
 
-              <h1> Social Determinants of Health  </h1>
+              <h1 data-toggle="popover" title="Social Determinants of Health" data-content="Social determinants are external factors that affect our well-being - whether we have access to economic opportunities and quality schooling, resources in our communities and support structures in our homes and neighborhoods, safe workplaces and clean water. Many communities in the U.S. are marked by structural racism, so these conditions are distributed unequally across neighborhoods and, in turn, contribute to racial disparities in health and well-being. The Charlottesville region was built upon a patchwork of former plantations, racial covenants served as the policy mechanism to reassert those inequities into the post-emancipation landscape, and the area remains one of the hardest places in the country to build wealth as a person of color. In a pandemic, the ways in which these inequities continue to harm our entire community become strikingly clear."> Social Determinants of Health  <i id = "SDOHbutton" class="fas fa-info-circle"   > </i> </h1>
 
                <h6> <i> Click on the Map for Your Tract's Details  </i></h6>
 
@@ -244,6 +253,7 @@ All indicators, except low food access and life expectancy, are taken directly f
 </div>
 
 
+
      <div id="tooltip">
         <span id="countyname" style = "font-size: 14px" ></span> <span id="tractname" style = "font-size: 14px" ></span>   <br>
 		<span id="indicatorname" style = "font-size: 14px" ></span>  <span id="indicatorvalue" style = "font-size: 14px" ></span>   <br>
@@ -255,6 +265,9 @@ All indicators, except low food access and life expectancy, are taken directly f
         <span id = "infotext" style = "font-size: 14px" > </span>
 
     </div>
+  
+
+    
 
 </body>
 
