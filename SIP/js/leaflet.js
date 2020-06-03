@@ -108,51 +108,96 @@ map_data.forEach(function(d) {
                ;             
            });
     
-var leafsvg = d3.selectAll(".leaflet-top").filter(".leaflet-right").selectAll("svg").remove();
-    
-var leafsvg = d3.selectAll(".leaflet-top").filter(".leaflet-right").append("svg")
-                .attr("height", 300)
-                .attr("width", 50)
-                .attr("transform", "translate(" + 0 + "," + 0+ ")")
-                .append("g");
+//var leafsvg = d3.selectAll(".leaflet-top").filter(".leaflet-right").selectAll("svg").remove();
+//    
+// var leafsvg = d3.selectAll(".leaflet-top").filter(".leaflet-right").append("svg")
+//                .attr("height", 300)
+//                .attr("width", 50)
+//                .attr("transform", "translate(" + 0 + "," + 0+ ")")
+//                .append("g");
+//
+//var defs = leafsvg.append("defs");
+//
+////Append a linearGradient element to the defs and give it a unique id
+//var linearGradient = defs.append("linearGradient")
+//    .attr("id", "linear-gradient");
+//    
+////Horizontal gradient
+//linearGradient
+//    .attr("x1", "0%")
+//    .attr("y1", "100%")
+//    .attr("x2", "0%")
+//    .attr("y2", "0%");
+//    
+//linearGradient.selectAll("stop")
+//    .data( myColorBar.range() )
+//    .enter().append("stop")
+//    .attr("offset", function(d,i) { return i/(myColorBar.range().length-1); })
+//    .attr("stop-color", function(d) { return d; });
+//
+//leafsvg.append("rect")
+//    .attr("width", 20)
+//    .attr("height", 290)
+//    .style("fill", "url(#linear-gradient)")
+//     .attr("transform", "translate(" + 25 + "," + 5+ ")")
+//    .attr("opacity", .8);
+//    
+//
+//var colory = d3.scaleLinear()
+//    .domain([minbar,maxbar])
+//    .range([ 290, 0])  
+//
+// leafsvg.append("g")
+//    .style("font-size", 10)
+//    .call(d3.axisLeft(colory).tickSize(4))
+//         .attr("transform", "translate(" + 25 + "," + 5 + ")")
 
-var defs = leafsvg.append("defs");
+  //  .select(".domain").remove()
+    
+    
+    
+/// Linear gradient in the other spot
+var heatbarslegend = d3.selectAll("#projectscontainer").selectAll(".legend").remove();
+    
+var heatbarslegend = d3.selectAll("#projectscontainer").append("g")
+                .attr("class", "legend")
+                .attr("transform", "translate(" + 1600 + "," + 150 + ")");
+    
+var defs2 = heatbarslegend.append("defs");
 
 //Append a linearGradient element to the defs and give it a unique id
-var linearGradient = defs.append("linearGradient")
-    .attr("id", "linear-gradient");
+var linearGradient2 = defs2.append("linearGradient")
+    .attr("id", "linear-gradient2");
     
 //Horizontal gradient
-linearGradient
+linearGradient2
     .attr("x1", "0%")
     .attr("y1", "100%")
     .attr("x2", "0%")
     .attr("y2", "0%");
     
-linearGradient.selectAll("stop")
+linearGradient2.selectAll("stop")
     .data( myColorBar.range() )
     .enter().append("stop")
     .attr("offset", function(d,i) { return i/(myColorBar.range().length-1); })
     .attr("stop-color", function(d) { return d; });
 
-leafsvg.append("rect")
-    .attr("width", 20)
-    .attr("height", 290)
-    .style("fill", "url(#linear-gradient)")
-     .attr("transform", "translate(" + 25 + "," + 5+ ")")
+heatbarslegend.append("rect")
+    .attr("width", 100)
+    .attr("height", 1100)
+    .style("fill", "url(#linear-gradient2)")
+     .attr("transform", "translate(" + 0 + "," + 0+ ")")
     .attr("opacity", .8);
     
 
-var colory = d3.scaleLinear()
+var colory2 = d3.scaleLinear()
     .domain([minbar,maxbar])
-    .range([ 290, 0])  
+    .range([ 1100, 0])  
 
- leafsvg.append("g")
-    .style("font-size", 10)
-    .call(d3.axisLeft(colory).tickSize(4))
-         .attr("transform", "translate(" + 25 + "," + 5 + ")")
-
-  //  .select(".domain").remove()
+ heatbarslegend.append("g")
+    .style("font-size", 50)
+    .call(d3.axisLeft(colory2).tickSize(20))
+         .attr("transform", "translate(" + 0 + "," + 0 + ")")
     
     
 }
