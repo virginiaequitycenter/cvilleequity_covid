@@ -19,8 +19,33 @@ writeLines("@import url('https://fonts.googleapis.com/css2?family=Open+Sans&disp
             body {
                 font-family: 'Open Sans', sans-serif;
                 padding-top: 56px;
-                }",
+            }
+                
+       #navbartop {
+           background-color: rgba(35, 45, 75, .95);
+           color: white;
+              }",
              con = "mystyle.css")
+
+before_body <- "before_body.html"
+
+ writeLines(
+   
+'<div class="navbar navbar-dark navbar-fixed-top" id = "navbartop" role="navigation">
+  <div class="container" >
+    <div class="navbar-header">
+   <a class="navbar-brand py-1" href="../../cvilleequity_covid/"  style = "color: white">CVILLE COVID EQUITY</a>
+    </div>
+    
+    <div id="navbar" class="navbar-collapse justify-content-between collapse">
+      
+
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+', con = before_body)
+  
+
 
 ```
 
