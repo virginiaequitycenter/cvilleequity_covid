@@ -15,3 +15,31 @@ body {
     background-color: rgba(35, 45, 75, .95);
 
 }
+
+
+#endbit {
+    position:relative;
+    width:100%;
+   margin:0; 
+    padding-bottom:1em;
+   padding-top:0;
+  background-image: linear-gradient(rgba(0,0,0,.9), rgba(0,0,0, .9));
+            
+}
+
+
+#bottomtext {
+    position: relative;
+    left: 10%;
+    width: 80%;   
+    text-align: left;
+    background-color: rgba(0,0,0,0);
+}
+
+
+#bottomtext p {
+
+    color:white;
+    
+
+}
