@@ -39,7 +39,7 @@ before_body <- "before_body.html"
  writeLines(
    
 '<div class="navbar navbar-dark navbar-fixed-top" id = "navbartop" role="navigation">
-  <div class="container" >
+
     <div class="navbar-header">
    <a class="navbar-brand py-1" href="../../cvilleequity_covid/"  style = "color: white">CVILLE COVID EQUITY</a>
     </div>
@@ -48,7 +48,6 @@ before_body <- "before_body.html"
       
 
     </div><!--/.nav-collapse -->
-  </div><!--/.container -->
 </div><!--/.navbar -->
 ', con = before_body)
   
