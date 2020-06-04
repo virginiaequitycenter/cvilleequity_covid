@@ -205,6 +205,7 @@ more_demo_comps <- fl %>%
 )
 
 ```
+<br>
 Key findings:
 
 * People of color make up 29 percent of Frontline workers, compared to 23 percent of the overall workforce; this disproportionality is largest for Black residents, who make up 13 percent of all workers and 22 percent of frontline workers.
