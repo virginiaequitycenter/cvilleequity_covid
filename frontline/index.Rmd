@@ -107,7 +107,12 @@ tot6 <- fl %>% group_by(Job) %>% slice(1) %>%
 pal1 = c("#003f5c", "#2f4b7c", "#665191", "#a05195", "#d45087", "#f95d6a", "#ff7c43", "#ffa600")
 pal1r <- colorRampPalette(pal1)
 
+
+# pal2 <- c("#242582", "#553D67", "#F64C72", "#99738E", "#2F2FA2")
+#pal2 <- c("#5D5C61", "#379683", "#7395AE", "#557A95", "#B1A296")
+# pal2 <- c("#f4b255", "#d8f0f0", "#3ca36f", "#6a6384", "#c4b8ca")
 pal2 <- c("#f4b255", "#41bf9b", "#3ca36f", "#6a6384", "#c4b8ca")
+
 pal2r <- colorRampPalette(pal2)
 
 fl %>% group_by(Job) %>% slice(1) %>% 
@@ -147,7 +152,7 @@ fl %>%
   mutate(display = ifelse(percent > 5, paste0(round(percent),"%"), "") )
  
   ggplot(demo_comparisons, aes(x = Job, y = percent, fill = Level)) + 
-  geom_bar(position="fill", stat="identity", alpha = .8, colour = "white") +
+  geom_bar(position="fill", stat="identity", alpha = .9, colour = "white") +
   geom_text(data = demo_comparisons,
             aes(x = Job, label = display, y = height), color = "Black", alpha = 1, hjust =   .5, size = 3) +
   scale_x_discrete(labels=c("All Workers" = "All", "Total" = "Frontline")) +
