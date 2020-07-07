@@ -12,8 +12,9 @@ Desc: Variables recodes for 2014-2018 5-year ACS cville region
 
 
 /* set directories */
-cd "/Users/micheleclaibourn/Box Sync/mpc/dataForDemocracy/equitymetrics/covid_dash/dataprep/vapums"
+* cd "/Users/micheleclaibourn/Box Sync/mpc/dataForDemocracy/equitymetrics/covid_dash/dataprep/vapums"
  
+cd "/Users/mpc8t/Downloads/covid_dash/dataprep/frontline/vapums" 
 use acs_1418_all.dta, clear
 
 

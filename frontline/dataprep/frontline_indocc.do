@@ -51,7 +51,13 @@ Industries for consideration
       8370 .SCA-Individual And Family Services
       8380 .SCA-Community Food And Housing, And Emergency Services
       8470 .SCA-Child Day Care Services
-  
+	  
+* Education and instructional support services:
+	  7860 "EDU-ELEMENTARY AND SECONDARY SCHOOLS"
+	  7890 "EDU-OTHER SCHOOLS AND INSTRUCTION, AND EDUCATIONAL SUPPORT SERVICES"
+	  -7870 "EDU-COLLEGES, UNIVERSITIES, AND PROFESSIONAL SCHOOLS, INCLUDING JUNIOR COLLEGES"
+	  -7880 "EDU-BUSINESS, TECHNICAL, AND TRADE SCHOOLS AND TRAINING"
+
 • Agriculture, forestry, and fishing: 
       0170 .AGR-Crop Production
       0180 .AGR-Animal Production And Aquaculture
@@ -89,6 +95,7 @@ replace flind1=4 if ind3d_18==7690
 replace flind1=5 if ind3d_18==7970 | ind3d_18==8090 | ind3d_18==8170 | ind3d_18==8180 | ind3d_18==8191 ///
 | ind3d_18==8192 | ind3d_18==8270 | ind3d_18==8290 /* | ind3d_18==2190 | ind3d_18==4380  */
 replace flind1=6 if ind3d_18==8370 | ind3d_18==8380 | ind3d_18==8470
+replace flind1=7 if ind3d_18==7860 | ind3d_18==7890
 
 # delimit ;
 lab def flind1
@@ -98,6 +105,7 @@ lab def flind1
 4 "Building Cleaning Services"
 5 "Healthcare"
 6 "Childcare, Homeless, Food, and Family Services"
+7 "Education and Support, Elementary and Secondary"
 ;
 #delimit cr
 lab var flind1 "Frontline industry, detailed"
@@ -106,7 +114,7 @@ lab val flind1 flind
 
 /* Frontline industry  */
 gen flind=0
-replace flind=1 if flind1>=1 & flind1<=6
+replace flind=1 if flind1>=1 & flind1<=7
 lab var flind "Frontline industry"
 lab val flind noyes
 
@@ -119,9 +127,10 @@ replace flind_d=4 if ind3d_18==7690 | ind3d_18==7790
 replace flind_d=5 if ind3d_18==7970 | ind3d_18==8090 | ind3d_18==8170 | ind3d_18==8180 | ind3d_18==8191 ///
 | ind3d_18==8192 | ind3d_18==8270 | ind3d_18==8290 /* | ind3d_18==2190 | ind3d_18==4380  */
 replace flind_d=6 if ind3d_18==8370 | ind3d_18==8380 | ind3d_18==8470
-replace flind_d=7 if ind3d_18==0170 | ind3d_18==0180 | ind3d_18==0190 | ind3d_18==0270 | ind3d_18==0280 | ind3d_18==0290 
-replace flind_d=8 if ind3d_18==0570 | ind3d_18==0580 | ind3d_18==0590 | ind3d_18==0670 | ind3d_18==0680 | ind3d_18==0690
-replace flind_d=9 if ind3d_18==0770 /* | ind3d_18==4090 */
+replace flind1=7 if ind3d_18==7860 | ind3d_18==7890
+replace flind_d=8 if ind3d_18==0170 | ind3d_18==0180 | ind3d_18==0190 | ind3d_18==0270 | ind3d_18==0280 | ind3d_18==0290 
+replace flind_d=9 if ind3d_18==0570 | ind3d_18==0580 | ind3d_18==0590 | ind3d_18==0670 | ind3d_18==0680 | ind3d_18==0690
+replace flind_d=10 if ind3d_18==0770 /* | ind3d_18==4090 */
 
 # delimit ;
 lab def flind_d
@@ -131,9 +140,10 @@ lab def flind_d
 4 "Building Cleaning Services and Waste Management"
 5 "Healthcare"
 6 "Childcare, Homeless, Food, and Family Services"
-7 "Agriculture, forestry, and fishing"
-8 "Utilities"
-9 "Construction"
+7 "Education and Support, Elementary and Secondary"
+8 "Agriculture, forestry, and fishing"
+9 "Utilities"
+10 "Construction"
 ;
 #delimit cr
 lab var flind_d "Frontline industry, detailed"
@@ -166,6 +176,8 @@ replace flind_dd=8290 if ind3d_18==8290
 replace flind_dd=8370 if ind3d_18==8370
 replace flind_dd=8380 if ind3d_18==8380
 replace flind_dd=8470 if ind3d_18==8470
+replace flind_dd=7860 if ind3d_18==7860
+replace flind_dd=7890 if ind3d_18==7890
 replace flind_dd=0170 if ind3d_18==0170
 replace flind_dd=0180 if ind3d_18==0180
 replace flind_dd=0190 if ind3d_18==0190
@@ -204,6 +216,8 @@ lab def flind_dd
 8370 "SCA-Individual And Family Services"
 8380 "SCA-Community Food And Housing, And Emergency Services"
 8470 "SCA-Child Day Care Services"
+7860 "EDU-Elementary and Secondary Schools"
+7890 "EDU-Other Schools and Instruction, and Educational and Support Services"
 0170 "AGR-Crop Production"
 0180 "AGR-Animal Production And Aquaculture"
 0190 "AGR-Forestry Except Logging"

@@ -1,25 +1,25 @@
 "","Job","varname","Demographic","Level","percent","count","total","unweighted_count","unweighted_total"
-"1","Total","wbhao","Race/Ethnicity","White",70.75,18467,26103,873,1145
-"2","Total","wbhao","Race/Ethnicity","Black",21.97,5735,26103,179,1145
-"3","Total","wbhao","Race/Ethnicity","Hispanic",2.58,673,26103,28,1145
-"4","Total","wbhao","Race/Ethnicity","AAPI",3.48,908,26103,49,1145
-"5","Total","wbhao","Race/Ethnicity","Other",1.23,320,26103,16,1145
-"6","Total","agegrp","Age Group","16-24",12.46,3253,26103,150,1145
-"7","Total","agegrp","Age Group","25-34",26.33,6873,26103,273,1145
-"8","Total","agegrp","Age Group","35-54",38.79,10126,26103,447,1145
-"9","Total","agegrp","Age Group","55-64",16.19,4226,26103,195,1145
-"10","Total","agegrp","Age Group","65+",6.23,1625,26103,80,1145
-"11","Total","educ","Education level","LTHS",6.55,1709,26103,72,1145
-"12","Total","educ","Education level","HS",25.45,6644,26103,253,1145
-"13","Total","educ","Education level","Some college",30.73,8022,26103,347,1145
-"14","Total","educ","Education level","College",20.37,5318,26103,236,1145
-"15","Total","educ","Education level","Advanced",16.89,4410,26103,237,1145
-"16","Total","female","Gender","Male",34.41,8981,26103,395,1145
-"17","Total","female","Gender","Female",65.59,17122,26103,750,1145
-"18","Total","forborn","Foreign born","Non-Immigrant",92.44,24129,26103,1051,1145
-"19","Total","forborn","Foreign born","Immigrant",7.56,1974,26103,94,1145
-"20","Total","hins","Health Insurance","Uninsured",10.66,2782,26103,102,1145
-"21","Total","hins","Health Insurance","Insured",89.34,23321,26103,1043,1145
+"1","Total Frontline","wbhao","Race/Ethnicity","White",74.24,26100,35154,1257,1592
+"2","Total Frontline","wbhao","Race/Ethnicity","Black",18.37,6459,35154,208,1592
+"3","Total Frontline","wbhao","Race/Ethnicity","Hispanic",3.09,1085,35154,45,1592
+"4","Total Frontline","wbhao","Race/Ethnicity","AAPI",3.12,1097,35154,61,1592
+"5","Total Frontline","wbhao","Race/Ethnicity","Other",1.17,413,35154,21,1592
+"6","Total Frontline","agegrp","Age Group","16-24",10.84,3812,35154,187,1592
+"7","Total Frontline","agegrp","Age Group","25-34",24.37,8566,35154,343,1592
+"8","Total Frontline","agegrp","Age Group","35-54",40.74,14321,35154,653,1592
+"9","Total Frontline","agegrp","Age Group","55-64",16.82,5914,35154,284,1592
+"10","Total Frontline","agegrp","Age Group","65+",7.23,2541,35154,125,1592
+"11","Total Frontline","educ","Education level","LTHS",5.94,2089,35154,86,1592
+"12","Total Frontline","educ","Education level","HS",21.74,7644,35154,299,1592
+"13","Total Frontline","educ","Education level","Some college",26.2,9211,35154,409,1592
+"14","Total Frontline","educ","Education level","College",22.84,8029,35154,374,1592
+"15","Total Frontline","educ","Education level","Advanced",23.27,8181,35154,424,1592
+"16","Total Frontline","female","Gender","Male",31.57,11099,35154,507,1592
+"17","Total Frontline","female","Gender","Female",68.43,24055,35154,1085,1592
+"18","Total Frontline","forborn","Foreign born","Non-Immigrant",92.75,32605,35154,1469,1592
+"19","Total Frontline","forborn","Foreign born","Immigrant",7.25,2549,35154,123,1592
+"20","Total Frontline","hins","Health Insurance","Uninsured",8.41,2956,35154,109,1592
+"21","Total Frontline","hins","Health Insurance","Insured",91.59,32198,35154,1483,1592
 "22","Grocery, Convenience, & Drug Stores","wbhao","Race/Ethnicity","White",70.32,3563,5067,157,203
 "23","Grocery, Convenience, & Drug Stores","wbhao","Race/Ethnicity","Black",22.95,1163,5067,33,203
 "24","Grocery, Convenience, & Drug Stores","wbhao","Race/Ethnicity","Hispanic",2.84,144,5067,4,203
@@ -45,119 +45,140 @@
 "44","Childcare & Social Services","wbhao","Race/Ethnicity","Hispanic",4.23,111,2623,5,130
 "45","Childcare & Social Services","wbhao","Race/Ethnicity","AAPI",1.26,33,2623,4,130
 "46","Childcare & Social Services","wbhao","Race/Ethnicity","Other",0.91,24,2623,2,130
-"47","Grocery, Convenience, & Drug Stores","agegrp","Age Group","16-24",19.93,1010,5067,49,203
-"48","Grocery, Convenience, & Drug Stores","agegrp","Age Group","25-34",23.33,1182,5067,41,203
-"49","Grocery, Convenience, & Drug Stores","agegrp","Age Group","35-54",37.3,1890,5067,76,203
-"50","Grocery, Convenience, & Drug Stores","agegrp","Age Group","55-64",14.86,753,5067,26,203
-"51","Grocery, Convenience, & Drug Stores","agegrp","Age Group","65+",4.58,232,5067,11,203
-"52","Public Transit","agegrp","Age Group","16-24",2.13,10,470,1,20
-"53","Public Transit","agegrp","Age Group","25-34",28.51,134,470,5,20
-"54","Public Transit","agegrp","Age Group","35-54",24.89,117,470,3,20
-"55","Public Transit","agegrp","Age Group","55-64",33.19,156,470,8,20
-"56","Public Transit","agegrp","Age Group","65+",11.28,53,470,3,20
-"57","Trucking, Warehouse, & Postal Service","agegrp","Age Group","16-24",14.26,260,1823,7,70
-"58","Trucking, Warehouse, & Postal Service","agegrp","Age Group","25-34",20.24,369,1823,13,70
-"59","Trucking, Warehouse, & Postal Service","agegrp","Age Group","35-54",40.7,742,1823,28,70
-"60","Trucking, Warehouse, & Postal Service","agegrp","Age Group","55-64",17.33,316,1823,17,70
-"61","Trucking, Warehouse, & Postal Service","agegrp","Age Group","65+",7.46,136,1823,5,70
-"62","Building Cleaning Services","agegrp","Age Group","16-24",0.7,6,860,2,33
-"63","Building Cleaning Services","agegrp","Age Group","25-34",38.26,329,860,8,33
-"64","Building Cleaning Services","agegrp","Age Group","35-54",27.79,239,860,13,33
-"65","Building Cleaning Services","agegrp","Age Group","55-64",24.19,208,860,6,33
-"66","Building Cleaning Services","agegrp","Age Group","65+",9.07,78,860,4,33
-"67","Health Care","agegrp","Age Group","16-24",10.26,1566,15260,66,689
-"68","Health Care","agegrp","Age Group","25-34",27.73,4232,15260,175,689
-"69","Health Care","agegrp","Age Group","35-54",39.9,6088,15260,280,689
-"70","Health Care","agegrp","Age Group","55-64",16.23,2476,15260,123,689
-"71","Health Care","agegrp","Age Group","65+",5.88,898,15260,45,689
-"72","Childcare & Social Services","agegrp","Age Group","16-24",15.29,401,2623,25,130
-"73","Childcare & Social Services","agegrp","Age Group","25-34",23.9,627,2623,31,130
-"74","Childcare & Social Services","agegrp","Age Group","35-54",40.03,1050,2623,47,130
-"75","Childcare & Social Services","agegrp","Age Group","55-64",12.09,317,2623,15,130
-"76","Childcare & Social Services","agegrp","Age Group","65+",8.69,228,2623,12,130
-"77","Grocery, Convenience, & Drug Stores","educ","Education level","LTHS",11.03,559,5067,25,203
-"78","Grocery, Convenience, & Drug Stores","educ","Education level","HS",41.21,2088,5067,75,203
-"79","Grocery, Convenience, & Drug Stores","educ","Education level","Some college",30.04,1522,5067,68,203
-"80","Grocery, Convenience, & Drug Stores","educ","Education level","College",14.78,749,5067,26,203
-"81","Grocery, Convenience, & Drug Stores","educ","Education level","Advanced",2.94,149,5067,9,203
-"82","Public Transit","educ","Education level","LTHS",2.13,10,470,1,20
-"83","Public Transit","educ","Education level","HS",42.77,201,470,8,20
-"84","Public Transit","educ","Education level","Some college",47.66,224,470,8,20
-"85","Public Transit","educ","Education level","College",7.45,35,470,3,20
-"86","Trucking, Warehouse, & Postal Service","educ","Education level","LTHS",10.15,185,1823,8,70
-"87","Trucking, Warehouse, & Postal Service","educ","Education level","HS",44.65,814,1823,32,70
-"88","Trucking, Warehouse, & Postal Service","educ","Education level","Some college",39.28,716,1823,25,70
-"89","Trucking, Warehouse, & Postal Service","educ","Education level","College",4.5,82,1823,4,70
-"90","Trucking, Warehouse, & Postal Service","educ","Education level","Advanced",1.43,26,1823,1,70
-"91","Building Cleaning Services","educ","Education level","LTHS",12.79,110,860,4,33
-"92","Building Cleaning Services","educ","Education level","HS",55.35,476,860,18,33
-"93","Building Cleaning Services","educ","Education level","Some college",23.49,202,860,7,33
-"94","Building Cleaning Services","educ","Education level","College",5,43,860,2,33
-"95","Building Cleaning Services","educ","Education level","Advanced",3.37,29,860,2,33
-"96","Health Care","educ","Education level","LTHS",3.85,587,15260,25,689
-"97","Health Care","educ","Education level","HS",15.88,2424,15260,90,689
-"98","Health Care","educ","Education level","Some college",30.46,4648,15260,201,689
-"99","Health Care","educ","Education level","College",24.38,3721,15260,169,689
-"100","Health Care","educ","Education level","Advanced",25.43,3880,15260,204,689
-"101","Childcare & Social Services","educ","Education level","LTHS",9.84,258,2623,9,130
-"102","Childcare & Social Services","educ","Education level","HS",24.44,641,2623,30,130
-"103","Childcare & Social Services","educ","Education level","Some college",27.07,710,2623,38,130
-"104","Childcare & Social Services","educ","Education level","College",26.23,688,2623,32,130
-"105","Childcare & Social Services","educ","Education level","Advanced",12.43,326,2623,21,130
-"106","Grocery, Convenience, & Drug Stores","female","Gender","Male",53.88,2730,5067,115,203
-"107","Grocery, Convenience, & Drug Stores","female","Gender","Female",46.12,2337,5067,88,203
-"108","Public Transit","female","Gender","Male",78.72,370,470,16,20
-"109","Public Transit","female","Gender","Female",21.28,100,470,4,20
-"110","Trucking, Warehouse, & Postal Service","female","Gender","Male",62.1,1132,1823,42,70
-"111","Trucking, Warehouse, & Postal Service","female","Gender","Female",37.9,691,1823,28,70
-"112","Building Cleaning Services","female","Gender","Male",38.6,332,860,16,33
-"113","Building Cleaning Services","female","Gender","Female",61.4,528,860,17,33
-"114","Health Care","female","Gender","Male",27.27,4162,15260,194,689
-"115","Health Care","female","Gender","Female",72.73,11098,15260,495,689
-"116","Childcare & Social Services","female","Gender","Male",9.72,255,2623,12,130
-"117","Childcare & Social Services","female","Gender","Female",90.28,2368,2623,118,130
-"118","Grocery, Convenience, & Drug Stores","forborn","Foreign born","Non-Immigrant",92.86,4705,5067,189,203
-"119","Grocery, Convenience, & Drug Stores","forborn","Foreign born","Immigrant",7.14,362,5067,14,203
-"120","Public Transit","forborn","Foreign born","Non-Immigrant",92.98,437,470,18,20
-"121","Public Transit","forborn","Foreign born","Immigrant",7.02,33,470,2,20
-"122","Trucking, Warehouse, & Postal Service","forborn","Foreign born","Non-Immigrant",98.52,1796,1823,69,70
-"123","Trucking, Warehouse, & Postal Service","forborn","Foreign born","Immigrant",1.48,27,1823,1,70
-"124","Building Cleaning Services","forborn","Foreign born","Non-Immigrant",72.21,621,860,23,33
-"125","Building Cleaning Services","forborn","Foreign born","Immigrant",27.79,239,860,10,33
-"126","Health Care","forborn","Foreign born","Non-Immigrant",92.05,14047,15260,630,689
-"127","Health Care","forborn","Foreign born","Immigrant",7.95,1213,15260,59,689
-"128","Childcare & Social Services","forborn","Foreign born","Non-Immigrant",96.19,2523,2623,122,130
-"129","Childcare & Social Services","forborn","Foreign born","Immigrant",3.81,100,2623,8,130
-"130","Grocery, Convenience, & Drug Stores","hins","Health Insurance","Uninsured",15.26,773,5067,25,203
-"131","Grocery, Convenience, & Drug Stores","hins","Health Insurance","Insured",84.74,4294,5067,178,203
-"132","Public Transit","hins","Health Insurance","Uninsured",8.3,39,470,3,20
-"133","Public Transit","hins","Health Insurance","Insured",91.7,431,470,17,20
-"134","Trucking, Warehouse, & Postal Service","hins","Health Insurance","Uninsured",15.85,289,1823,13,70
-"135","Trucking, Warehouse, & Postal Service","hins","Health Insurance","Insured",84.15,1534,1823,57,70
-"136","Building Cleaning Services","hins","Health Insurance","Uninsured",33.72,290,860,11,33
-"137","Building Cleaning Services","hins","Health Insurance","Insured",66.28,570,860,22,33
-"138","Health Care","hins","Health Insurance","Uninsured",6.54,998,15260,33,689
-"139","Health Care","hins","Health Insurance","Insured",93.46,14262,15260,656,689
-"140","Childcare & Social Services","hins","Health Insurance","Uninsured",14.98,393,2623,17,130
-"141","Childcare & Social Services","hins","Health Insurance","Insured",85.02,2230,2623,113,130
-"142","All Workers","wbhao","Race/Ethnicity","White",77.46,94592,122113,4719,5865
-"143","All Workers","wbhao","Race/Ethnicity","Black",13.25,16185,122113,562,5865
-"144","All Workers","wbhao","Race/Ethnicity","Hispanic",4.43,5405,122113,224,5865
-"145","All Workers","wbhao","Race/Ethnicity","AAPI",4.03,4925,122113,309,5865
-"146","All Workers","wbhao","Race/Ethnicity","Other",0.82,1006,122113,51,5865
-"147","All Workers","agegrp","Age Group","16-24",12.28,15001,122113,877,5865
-"148","All Workers","agegrp","Age Group","25-34",22.16,27064,122113,1150,5865
-"149","All Workers","agegrp","Age Group","35-54",40.38,49306,122113,2296,5865
-"150","All Workers","agegrp","Age Group","55-64",17.81,21754,122113,1054,5865
-"151","All Workers","agegrp","Age Group","65+",7.36,8988,122113,488,5865
-"152","All Workers","educ","Education level","LTHS",7.1,8673,122113,355,5865
-"153","All Workers","educ","Education level","HS",22.82,27866,122113,1164,5865
-"154","All Workers","educ","Education level","Some college",26.54,32403,122113,1556,5865
-"155","All Workers","educ","Education level","College",23.02,28109,122113,1429,5865
-"156","All Workers","educ","Education level","Advanced",20.52,25062,122113,1361,5865
-"157","All Workers","female","Gender","Male",50.31,61437,122113,2936,5865
-"158","All Workers","female","Gender","Female",49.69,60676,122113,2929,5865
-"159","All Workers","forborn","Foreign born","Non-Immigrant",90.09,110016,122113,5299,5865
-"160","All Workers","forborn","Foreign born","Immigrant",9.91,12097,122113,566,5865
-"161","All Workers","hins","Health Insurance","Uninsured",9.8,11971,122113,439,5865
-"162","All Workers","hins","Health Insurance","Insured",90.2,110142,122113,5426,5865
+"47","Education and Support (K-12)","wbhao","Race/Ethnicity","White",84.33,7633,9051,384,447
+"48","Education and Support (K-12)","wbhao","Race/Ethnicity","Black",8,724,9051,29,447
+"49","Education and Support (K-12)","wbhao","Race/Ethnicity","Hispanic",4.55,412,9051,17,447
+"50","Education and Support (K-12)","wbhao","Race/Ethnicity","AAPI",2.09,189,9051,12,447
+"51","Education and Support (K-12)","wbhao","Race/Ethnicity","Other",1.03,93,9051,5,447
+"52","Grocery, Convenience, & Drug Stores","agegrp","Age Group","16-24",19.93,1010,5067,49,203
+"53","Grocery, Convenience, & Drug Stores","agegrp","Age Group","25-34",23.33,1182,5067,41,203
+"54","Grocery, Convenience, & Drug Stores","agegrp","Age Group","35-54",37.3,1890,5067,76,203
+"55","Grocery, Convenience, & Drug Stores","agegrp","Age Group","55-64",14.86,753,5067,26,203
+"56","Grocery, Convenience, & Drug Stores","agegrp","Age Group","65+",4.58,232,5067,11,203
+"57","Public Transit","agegrp","Age Group","16-24",2.13,10,470,1,20
+"58","Public Transit","agegrp","Age Group","25-34",28.51,134,470,5,20
+"59","Public Transit","agegrp","Age Group","35-54",24.89,117,470,3,20
+"60","Public Transit","agegrp","Age Group","55-64",33.19,156,470,8,20
+"61","Public Transit","agegrp","Age Group","65+",11.28,53,470,3,20
+"62","Trucking, Warehouse, & Postal Service","agegrp","Age Group","16-24",14.26,260,1823,7,70
+"63","Trucking, Warehouse, & Postal Service","agegrp","Age Group","25-34",20.24,369,1823,13,70
+"64","Trucking, Warehouse, & Postal Service","agegrp","Age Group","35-54",40.7,742,1823,28,70
+"65","Trucking, Warehouse, & Postal Service","agegrp","Age Group","55-64",17.33,316,1823,17,70
+"66","Trucking, Warehouse, & Postal Service","agegrp","Age Group","65+",7.46,136,1823,5,70
+"67","Building Cleaning Services","agegrp","Age Group","16-24",0.7,6,860,2,33
+"68","Building Cleaning Services","agegrp","Age Group","25-34",38.26,329,860,8,33
+"69","Building Cleaning Services","agegrp","Age Group","35-54",27.79,239,860,13,33
+"70","Building Cleaning Services","agegrp","Age Group","55-64",24.19,208,860,6,33
+"71","Building Cleaning Services","agegrp","Age Group","65+",9.07,78,860,4,33
+"72","Health Care","agegrp","Age Group","16-24",10.26,1566,15260,66,689
+"73","Health Care","agegrp","Age Group","25-34",27.73,4232,15260,175,689
+"74","Health Care","agegrp","Age Group","35-54",39.9,6088,15260,280,689
+"75","Health Care","agegrp","Age Group","55-64",16.23,2476,15260,123,689
+"76","Health Care","agegrp","Age Group","65+",5.88,898,15260,45,689
+"77","Childcare & Social Services","agegrp","Age Group","16-24",15.29,401,2623,25,130
+"78","Childcare & Social Services","agegrp","Age Group","25-34",23.9,627,2623,31,130
+"79","Childcare & Social Services","agegrp","Age Group","35-54",40.03,1050,2623,47,130
+"80","Childcare & Social Services","agegrp","Age Group","55-64",12.09,317,2623,15,130
+"81","Childcare & Social Services","agegrp","Age Group","65+",8.69,228,2623,12,130
+"82","Education and Support (K-12)","agegrp","Age Group","16-24",6.18,559,9051,37,447
+"83","Education and Support (K-12)","agegrp","Age Group","25-34",18.71,1693,9051,70,447
+"84","Education and Support (K-12)","agegrp","Age Group","35-54",46.35,4195,9051,206,447
+"85","Education and Support (K-12)","agegrp","Age Group","55-64",18.65,1688,9051,89,447
+"86","Education and Support (K-12)","agegrp","Age Group","65+",10.12,916,9051,45,447
+"87","Grocery, Convenience, & Drug Stores","educ","Education level","LTHS",11.03,559,5067,25,203
+"88","Grocery, Convenience, & Drug Stores","educ","Education level","HS",41.21,2088,5067,75,203
+"89","Grocery, Convenience, & Drug Stores","educ","Education level","Some college",30.04,1522,5067,68,203
+"90","Grocery, Convenience, & Drug Stores","educ","Education level","College",14.78,749,5067,26,203
+"91","Grocery, Convenience, & Drug Stores","educ","Education level","Advanced",2.94,149,5067,9,203
+"92","Public Transit","educ","Education level","LTHS",2.13,10,470,1,20
+"93","Public Transit","educ","Education level","HS",42.77,201,470,8,20
+"94","Public Transit","educ","Education level","Some college",47.66,224,470,8,20
+"95","Public Transit","educ","Education level","College",7.45,35,470,3,20
+"96","Trucking, Warehouse, & Postal Service","educ","Education level","LTHS",10.15,185,1823,8,70
+"97","Trucking, Warehouse, & Postal Service","educ","Education level","HS",44.65,814,1823,32,70
+"98","Trucking, Warehouse, & Postal Service","educ","Education level","Some college",39.28,716,1823,25,70
+"99","Trucking, Warehouse, & Postal Service","educ","Education level","College",4.5,82,1823,4,70
+"100","Trucking, Warehouse, & Postal Service","educ","Education level","Advanced",1.43,26,1823,1,70
+"101","Building Cleaning Services","educ","Education level","LTHS",12.79,110,860,4,33
+"102","Building Cleaning Services","educ","Education level","HS",55.35,476,860,18,33
+"103","Building Cleaning Services","educ","Education level","Some college",23.49,202,860,7,33
+"104","Building Cleaning Services","educ","Education level","College",5,43,860,2,33
+"105","Building Cleaning Services","educ","Education level","Advanced",3.37,29,860,2,33
+"106","Health Care","educ","Education level","LTHS",3.85,587,15260,25,689
+"107","Health Care","educ","Education level","HS",15.88,2424,15260,90,689
+"108","Health Care","educ","Education level","Some college",30.46,4648,15260,201,689
+"109","Health Care","educ","Education level","College",24.38,3721,15260,169,689
+"110","Health Care","educ","Education level","Advanced",25.43,3880,15260,204,689
+"111","Childcare & Social Services","educ","Education level","LTHS",9.84,258,2623,9,130
+"112","Childcare & Social Services","educ","Education level","HS",24.44,641,2623,30,130
+"113","Childcare & Social Services","educ","Education level","Some college",27.07,710,2623,38,130
+"114","Childcare & Social Services","educ","Education level","College",26.23,688,2623,32,130
+"115","Childcare & Social Services","educ","Education level","Advanced",12.43,326,2623,21,130
+"116","Education and Support (K-12)","educ","Education level","LTHS",4.2,380,9051,14,447
+"117","Education and Support (K-12)","educ","Education level","HS",11.05,1000,9051,46,447
+"118","Education and Support (K-12)","educ","Education level","Some college",13.14,1189,9051,62,447
+"119","Education and Support (K-12)","educ","Education level","College",29.95,2711,9051,138,447
+"120","Education and Support (K-12)","educ","Education level","Advanced",41.66,3771,9051,187,447
+"121","Grocery, Convenience, & Drug Stores","female","Gender","Male",53.88,2730,5067,115,203
+"122","Grocery, Convenience, & Drug Stores","female","Gender","Female",46.12,2337,5067,88,203
+"123","Public Transit","female","Gender","Male",78.72,370,470,16,20
+"124","Public Transit","female","Gender","Female",21.28,100,470,4,20
+"125","Trucking, Warehouse, & Postal Service","female","Gender","Male",62.1,1132,1823,42,70
+"126","Trucking, Warehouse, & Postal Service","female","Gender","Female",37.9,691,1823,28,70
+"127","Building Cleaning Services","female","Gender","Male",38.6,332,860,16,33
+"128","Building Cleaning Services","female","Gender","Female",61.4,528,860,17,33
+"129","Health Care","female","Gender","Male",27.27,4162,15260,194,689
+"130","Health Care","female","Gender","Female",72.73,11098,15260,495,689
+"131","Childcare & Social Services","female","Gender","Male",9.72,255,2623,12,130
+"132","Childcare & Social Services","female","Gender","Female",90.28,2368,2623,118,130
+"133","Education and Support (K-12)","female","Gender","Male",23.4,2118,9051,112,447
+"134","Education and Support (K-12)","female","Gender","Female",76.6,6933,9051,335,447
+"135","Grocery, Convenience, & Drug Stores","forborn","Foreign born","Non-Immigrant",92.86,4705,5067,189,203
+"136","Grocery, Convenience, & Drug Stores","forborn","Foreign born","Immigrant",7.14,362,5067,14,203
+"137","Public Transit","forborn","Foreign born","Non-Immigrant",92.98,437,470,18,20
+"138","Public Transit","forborn","Foreign born","Immigrant",7.02,33,470,2,20
+"139","Trucking, Warehouse, & Postal Service","forborn","Foreign born","Non-Immigrant",98.52,1796,1823,69,70
+"140","Trucking, Warehouse, & Postal Service","forborn","Foreign born","Immigrant",1.48,27,1823,1,70
+"141","Building Cleaning Services","forborn","Foreign born","Non-Immigrant",72.21,621,860,23,33
+"142","Building Cleaning Services","forborn","Foreign born","Immigrant",27.79,239,860,10,33
+"143","Health Care","forborn","Foreign born","Non-Immigrant",92.05,14047,15260,630,689
+"144","Health Care","forborn","Foreign born","Immigrant",7.95,1213,15260,59,689
+"145","Childcare & Social Services","forborn","Foreign born","Non-Immigrant",96.19,2523,2623,122,130
+"146","Childcare & Social Services","forborn","Foreign born","Immigrant",3.81,100,2623,8,130
+"147","Education and Support (K-12)","forborn","Foreign born","Non-Immigrant",93.65,8476,9051,418,447
+"148","Education and Support (K-12)","forborn","Foreign born","Immigrant",6.35,575,9051,29,447
+"149","Grocery, Convenience, & Drug Stores","hins","Health Insurance","Uninsured",15.26,773,5067,25,203
+"150","Grocery, Convenience, & Drug Stores","hins","Health Insurance","Insured",84.74,4294,5067,178,203
+"151","Public Transit","hins","Health Insurance","Uninsured",8.3,39,470,3,20
+"152","Public Transit","hins","Health Insurance","Insured",91.7,431,470,17,20
+"153","Trucking, Warehouse, & Postal Service","hins","Health Insurance","Uninsured",15.85,289,1823,13,70
+"154","Trucking, Warehouse, & Postal Service","hins","Health Insurance","Insured",84.15,1534,1823,57,70
+"155","Building Cleaning Services","hins","Health Insurance","Uninsured",33.72,290,860,11,33
+"156","Building Cleaning Services","hins","Health Insurance","Insured",66.28,570,860,22,33
+"157","Health Care","hins","Health Insurance","Uninsured",6.54,998,15260,33,689
+"158","Health Care","hins","Health Insurance","Insured",93.46,14262,15260,656,689
+"159","Childcare & Social Services","hins","Health Insurance","Uninsured",14.98,393,2623,17,130
+"160","Childcare & Social Services","hins","Health Insurance","Insured",85.02,2230,2623,113,130
+"161","Education and Support (K-12)","hins","Health Insurance","Uninsured",1.92,174,9051,7,447
+"162","Education and Support (K-12)","hins","Health Insurance","Insured",98.08,8877,9051,440,447
+"163","All Workers","wbhao","Race/Ethnicity","White",77.46,94592,122113,4719,5865
+"164","All Workers","wbhao","Race/Ethnicity","Black",13.25,16185,122113,562,5865
+"165","All Workers","wbhao","Race/Ethnicity","Hispanic",4.43,5405,122113,224,5865
+"166","All Workers","wbhao","Race/Ethnicity","AAPI",4.03,4925,122113,309,5865
+"167","All Workers","wbhao","Race/Ethnicity","Other",0.82,1006,122113,51,5865
+"168","All Workers","agegrp","Age Group","16-24",12.28,15001,122113,877,5865
+"169","All Workers","agegrp","Age Group","25-34",22.16,27064,122113,1150,5865
+"170","All Workers","agegrp","Age Group","35-54",40.38,49306,122113,2296,5865
+"171","All Workers","agegrp","Age Group","55-64",17.81,21754,122113,1054,5865
+"172","All Workers","agegrp","Age Group","65+",7.36,8988,122113,488,5865
+"173","All Workers","educ","Education level","LTHS",7.1,8673,122113,355,5865
+"174","All Workers","educ","Education level","HS",22.82,27866,122113,1164,5865
+"175","All Workers","educ","Education level","Some college",26.54,32403,122113,1556,5865
+"176","All Workers","educ","Education level","College",23.02,28109,122113,1429,5865
+"177","All Workers","educ","Education level","Advanced",20.52,25062,122113,1361,5865
+"178","All Workers","female","Gender","Male",50.31,61437,122113,2936,5865
+"179","All Workers","female","Gender","Female",49.69,60676,122113,2929,5865
+"180","All Workers","forborn","Foreign born","Non-Immigrant",90.09,110016,122113,5299,5865
+"181","All Workers","forborn","Foreign born","Immigrant",9.91,12097,122113,566,5865
+"182","All Workers","hins","Health Insurance","Uninsured",9.8,11971,122113,439,5865
+"183","All Workers","hins","Health Insurance","Insured",90.2,110142,122113,5426,5865

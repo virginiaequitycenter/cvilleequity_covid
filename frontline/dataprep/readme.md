@@ -19,8 +19,8 @@ NYC version: https://comptroller.nyc.gov/reports/new-york-citys-frontline-worker
       * perwgt = pwgtp
       * state = st
   * Created (var name = brief desc, key vars only):
-      * flind1 = frontline industry, six categories, 1-Grocery, Convenience, and Drug store, 2-Public Transit, 3-Trucking, Warehouse, and Postal Service, 4-Building Cleaning Services, 5-Healthcare, 6-Childcare, Homeless, Food, and Familiy Services
-      * flind_d = fronline industry, nine categories, 1-Grocery, Convenience, and Drug store, 2-Public Transit, 3-Trucking, Warehouse, and Postal Service, 4-Building Cleaning Services, 5-Healthcare, 6-Childcare, Homeless, Food, and Familiy Services, 7-Agriculture, Forestry, and Fishing, 8-Utilities, 9-Construction
+      * flind1 = frontline industry, six categories, 1-Grocery, Convenience, and Drug store, 2-Public Transit, 3-Trucking, Warehouse, and Postal Service, 4-Building Cleaning Services, 5-Healthcare, 6-Childcare, Homeless, Food, and Familiy Services, 7-Education and Support (K-12)
+      * flind_d = frontline industry, nine categories, 1-Grocery, Convenience, and Drug store, 2-Public Transit, 3-Trucking, Warehouse, and Postal Service, 4-Building Cleaning Services, 5-Healthcare, 6-Childcare, Homeless, Food, and Familiy Services, 7-Agriculture, Forestry, and Fishing, 8-Utilities, 9-Construction
       * flind_dd = frontline industry with detail
       * lfstate = labor force status, 1-Employed, 2-Unemployed, 3-Not in labor force, 4-Armed forces
       * ftpt = full/part time, 1-full, 2-part
