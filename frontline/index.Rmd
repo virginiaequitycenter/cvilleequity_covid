@@ -6,12 +6,19 @@ output:
       toc: yes
       toc_depth: 3
       toc_float: true
+      includes:
+        before_body: before_body.html
+
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, error = FALSE)
 ```
 
+<script>
+ <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</script>
 
 ```{r cssscript}
 
@@ -19,8 +26,32 @@ writeLines("@import url('https://fonts.googleapis.com/css2?family=Open+Sans&disp
             body {
                 font-family: 'Open Sans', sans-serif;
                 padding-top: 56px;
-                }",
+            }
+                
+       #navbartop {
+           background-color: rgba(35, 45, 75, .95);
+           color: white;
+              }",
              con = "mystyle.css")
+
+before_body <- "before_body.html"
+
+ writeLines(
+   
+'<div class="navbar navbar-dark navbar-fixed-top" id = "navbartop" role="navigation">
+
+    <div class="navbar-header">
+   <a class="navbar-brand py-1" href="../../cvilleequity_covid/"  style = "color: white">CVILLE COVID EQUITY</a>
+    </div>
+    
+    <div id="navbar" class="navbar-collapse justify-content-between collapse">
+      
+
+    </div><!--/.nav-collapse -->
+</div><!--/.navbar -->
+', con = before_body)
+  
+
 
 ```
 
@@ -79,7 +110,12 @@ tot7 <- fl %>% group_by(Job) %>% slice(1) %>%
 pal1 = c("#003f5c", "#2f4b7c", "#665191", "#a05195", "#d45087", "#f95d6a", "#ff7c43", "#ffa600")
 pal1r <- colorRampPalette(pal1)
 
+
+# pal2 <- c("#242582", "#553D67", "#F64C72", "#99738E", "#2F2FA2")
+#pal2 <- c("#5D5C61", "#379683", "#7395AE", "#557A95", "#B1A296")
+# pal2 <- c("#f4b255", "#d8f0f0", "#3ca36f", "#6a6384", "#c4b8ca")
 pal2 <- c("#f4b255", "#41bf9b", "#3ca36f", "#6a6384", "#c4b8ca")
+
 pal2r <- colorRampPalette(pal2)
 
 fl %>% group_by(Job) %>% slice(1) %>% 
@@ -118,8 +154,8 @@ fl %>%
   mutate(height = (cumsum(percent) - percent/2)/100) %>%
   mutate(display = ifelse(percent > 5, paste0(round(percent),"%"), "") )
  
-  ggplot(demo_comparisons, aes(x = fct_rev(Job), y = percent, fill = Level)) + 
-  geom_bar(position="fill", stat="identity", alpha = .8, colour = "white") +
+  ggplot(demo_comparisons, aes(x = Job, y = percent, fill = Level)) + 
+  geom_bar(position="fill", stat="identity", alpha = .9, colour = "white") +
   geom_text(data = demo_comparisons,
             aes(x = Job, label = display, y = height), color = "Black", alpha = 1, hjust =   .5, size = 3) +
   scale_x_discrete(labels=c("All Workers" = "All", "Total" = "Frontline")) +
@@ -176,6 +212,7 @@ more_demo_comps <- fl %>%
 )
 
 ```
+<br>
 Key findings:
 
 * People of color make up 26 percent of Frontline workers, compared to 23 percent of the overall workforce; this disproportionality is largest for Black residents, who make up 13 percent of all workers and 18 percent of frontline workers.
