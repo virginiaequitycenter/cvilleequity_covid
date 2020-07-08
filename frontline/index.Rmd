@@ -105,7 +105,7 @@ In addition
 * Foreign born residents are 28 percent of the workforce in Building Cleaning Services, nearly three times their proportion than in the overall workforce.
 * Ten percent of workers in our region lack health insurance. The proportions are notably higher among frontline workers in Building Cleaning Services, and Grocery, Convenience, and Drug Stores, in Trucking, Warehouse, and Postal Service, and in Child Care and Social Services.
 
-# Frontline Workers: Detailed Analysis
+# Frontline Workers: Analysis
 
 ```{r}
 # total number industry
@@ -150,7 +150,7 @@ fl %>% group_by(Job) %>% slice(1) %>%
 
 ## Overall Characteristics
 
-Understanding who these workers are is necessary for developing and implementing protections. This work, modeled after analysis by the [Center for Economic and Policy Research](https://cepr.net/a-basic-demographic-profile-of-workers-in-frontline-industries/) (see a description of the [methodology below](#methods)). It describes the characteristics of frontline workers in the Charlottesville region, revealing ongoing economic and social inequities between knowledge economy workers who can work-from-home and essential workers on the frontlines, where they have greater exposure to the virus, who are disproportionately people of color, women, and residents without a college degree. 
+Understanding who these workers are is necessary for developing and implementing protections. This work is modeled after analysis by the [Center for Economic and Policy Research](https://cepr.net/a-basic-demographic-profile-of-workers-in-frontline-industries/) (see a description of the [methodology below](#methods)). The analysis describes the characteristics of frontline workers in the Charlottesville region, revealing ongoing economic and social inequities between knowledge economy workers, who can work-from-home, and essential workers, who cannot. In particular, frontline workers, who are at a greater risk of being exposed to the virus, are disproportionately people of color, women, and residents without a college degree.
 
 ```{r fig.width = 8, fig.height = 6.5}
 # number/percent overall by key demographics
@@ -227,7 +227,7 @@ Key findings:
 * People of color make up 26 percent of frontline workers, compared to 23 percent of the overall workforce; this disproportionality is largest for Black residents, who make up 13 percent of all workers and 18 percent of frontline workers.
 * The age distribution of frontline workers is similar to that of all workers, though young adults -- those aged 25-34 -- are somewhat overrepresented on the frontlines.
 * Though men and women make up equal shares of the overall workforce, 68 percent of frontline workers are women.
-* As a group, frontline workers are no more likey to be immigrants or to lack health insurance compared to all workers.
+* As a group, frontline workers are no more likely to be immigrants or to lack health insurance compared to all workers.
 
 However, several of these differences vary widely across industries.
 
@@ -541,7 +541,7 @@ Among all workers in our region, 90 percent have health insurance and 10 percent
 
 # Methodology {#methods}
 
-This local analysis was based on the work of the Center for Economic and Policy Research (CEPR) building from their analysis of [frontline workers at the national and state level](https://cepr.net/a-basic-demographic-profile-of-workers-in-frontline-industries/). The data for this analyis is from the most recent five-year estimates of data from the American Community Survey (2014-2018) [Public Use Microdata Sample0(https://www.census.gov/programs-surveys/acs/data/pums.html). Using only survey data from the respondents in the [Thomas Jefferson Planning District](http://tjpdc.org/)[^2] As the CEPR study notes: "The demographics of the frontline workforce is unlikely to have changed in any substantial way over the last two years, and using five-year estimates of ACS data helps ensure that sample sizes are sufficient to produce reasonably precise estimates by industry."
+This local analysis was based on the work of the Center for Economic and Policy Research (CEPR) building from their analysis of [frontline workers at the national and state level](https://cepr.net/a-basic-demographic-profile-of-workers-in-frontline-industries/). The data for this analysis is from the most recent five-year estimates of data from the American Community Survey (2014-2018) [Public Use Microdata Sample0(https://www.census.gov/programs-surveys/acs/data/pums.html). Using only survey data from the respondents in the [Thomas Jefferson Planning District](http://tjpdc.org/)[^2] As the CEPR study notes: "The demographics of the frontline workforce is unlikely to have changed in any substantial way over the last two years, and using five-year estimates of ACS data helps ensure that sample sizes are sufficient to produce reasonably precise estimates by industry."
 
 Using their initial code, we adapted it to generate estimates of frontline workers and their characteristics for our region. The CEPR analysis defined frontline industries using the same definitions as the [New York City Comptroller's report](https://comptroller.nyc.gov/reports/new-york-citys-frontline-workers/#Methodology): direct-service employees in the grocery, pharmacy, transit, delivery & storage, cleaning, healthcare, and social services industries. These include the following industry classifications: 
 
@@ -566,7 +566,7 @@ The [Bay Area analysis](https://bayareaequityatlas.org/essential-workers) began 
 
 With community expertise and input, we could supplement and revise this analysis further with additional industries.
 
-As both CEPR and the Bay Area anaylsis observe, this approach includes all workers (16 and above) in the relevant industry but no workers in frontline occupations  outside of these chosen categories. This means the estimates "exclude some workers in occupations (but not industries) that are clearly on the frontlines, while also including some workers who are not in frontline occupations, even though they are in frontline industries." As an example, a police officer is a frontline occupation in a non-frontline industry; a school bus driver is a non-frontline occupation when schools are closed, but in a frontline industry. "Still," CPER notes, "the vast majority of workers in the six frontline industries are frontline workers."
+As both CEPR and the Bay Area analysis observe, this approach includes all workers (16 and above) in the relevant industry but no workers in frontline occupations  outside of these chosen categories. This means the estimates "exclude some workers in occupations (but not industries) that are clearly on the frontlines, while also including some workers who are not in frontline occupations, even though they are in frontline industries." As an example, a police officer is a frontline occupation in a non-frontline industry; a school bus driver is a non-frontline occupation when schools are closed, but in a frontline industry. "Still," CPER notes, "the vast majority of workers in the six frontline industries are frontline workers."
 
 All of the code to produce this report is available on our [GitHub repo](https://github.com/virginiaequitycenter/cvilleequity_covid/tree/master/frontline).
 
