@@ -78,25 +78,30 @@ fl <- fl %>%
 
 Prior to the COVID crisis, more than 35,000 workers were employed in the Charlottesville region[^1] in seven broad industries that have been serving on the frontlines of support, sustenance, and care since the pandemic. They make up 29 percent of all workers in our area and include physicians and nurses, grocery store employees and convenience store clerks, warehouse workers and bus drivers, K-12 school teachers and instructional support staff, and cleaning services, among others. They have always been essential, maintaining services and performing work on which we all depend; they have often been underpaid and underappreciated. In the current health crisis, they are too often under protected as well.
 
-# Summary Findings
+As Virginia begins to ease public health restrictions, the frontline workers on which re-opening depends will be placed in increased jeopardy. Given the disproportionalities in the frontline workforce, the increased risk likewise falls even more heavily on people of color. Our region’s essential workers have a right to health and safety protections, paid sick leave, compensation in accord with the hazards they face, and more.
 
-People of color make up 26 percent of Frontline workers, compared to 23 percent of the overall workforce; this disproportionality is larger for Black residents, who make up 13 percent of all workers and 18 percent of frontline workers.
+Community-based advocates from the Equity Center Local Steering Committee, working with UVA’s President’s Council on Community-University Partnerships, propose a Fair Treatment Charter for Frontline Workers outlining a comprehensive set of policies and practices.
+
+
+# Frontline Workers: Summary
+
+People of color make up 26 percent of frontline workers, compared to 23 percent of the overall workforce; this disproportionality is larger for Black residents, who make up 13 percent of all workers and 18 percent of frontline workers.
 
 ![](image/frontline.gif)
 
-While frontline workers as a whole are disproportionately people of color, the differences are particularly stark in two industries: 1) Building Cleaning Services, where 25 percent of the workforce is Hispanic, compared to 4 percent overall, and another 23 percent of the workforce is Black, compared to 13 percent overall and 2) Public Transit, where a full 61 percent of the workforce is Black, compared to 13 percent overall.
+* While frontline workers as a whole are disproportionately people of color, the differences are particularly stark in two industries: 1) Building Cleaning Services and 2) Public Transit.
 
-Though men and women make up equal shares of the overall workforce, 68 percent of frontline workers are women.
+* Though men and women make up equal shares of the overall workforce, 68 percent of frontline workers are women.
 
 ![](image/frontline_gender.gif)
 
 In addition
 
-* While 57 percent of the overall workforce in the region do not have a college degree, this is more likely in all frontline industries except Health Care and Education. The differences are especially big in Grocery, Convenience, and Drug Stores (82 percent without a college degree), Trucking, Warehouse, and Postal Service (94 percent), Building Cleaning Services (91 percent), and Public Transit (93 percent).
+* While 44 percent of the overall workforce in the region has a college degree, employees in some frontline industries are much less likely to have college degrees --  Grocery, Convenience, and Drug Stores, Trucking, Warehouse, and Postal Service, Building Cleaning Services, and Public Transit.
 * Foreign born residents are 28 percent of the workforce in Building Cleaning Services, nearly three times their proportion than in the overall workforce.
-* Ten percent of workers in our region lack health insurance. The proportions are notably higher among frontline workers in Building Cleaning Services (34 percent), and Grocery, Convenience, and Drug Stores, in Trucking, Warehouse, and Postal Service (15 percent), and in Child Care and Social Services (15 percent).
+* Ten percent of workers in our region lack health insurance. The proportions are notably higher among frontline workers in Building Cleaning Services, and Grocery, Convenience, and Drug Stores, in Trucking, Warehouse, and Postal Service, and in Child Care and Social Services.
 
-# Frontline Workers
+# Frontline Workers: Detailed Analysis
 
 ```{r}
 # total number industry
@@ -215,7 +220,7 @@ more_demo_comps <- fl %>%
 <br>
 Key findings:
 
-* People of color make up 26 percent of Frontline workers, compared to 23 percent of the overall workforce; this disproportionality is largest for Black residents, who make up 13 percent of all workers and 18 percent of frontline workers.
+* People of color make up 26 percent of frontline workers, compared to 23 percent of the overall workforce; this disproportionality is largest for Black residents, who make up 13 percent of all workers and 18 percent of frontline workers.
 * The age distribution of frontline workers is similar to that of all workers, though young adults -- those aged 25-34 -- are somewhat overrepresented on the frontlines.
 * Though men and women make up equal shares of the overall workforce, 68 percent of frontline workers are women.
 * As a group, frontline workers are no more likey to be immigrants or to lack health insurance compared to all workers.
@@ -529,12 +534,6 @@ Among all workers in our region, 90 percent have health insurance and 10 percent
 
 * Within Building Cleaning Services, 34 percent of workers lack health insurance.
 * About 15 percent of workers in Grocery, Convenience, and Drug Stores, in Trucking, Warehouse, and Postal Service, and in Child Care and Social Services lack health insurance.
-
-## Frontline Workers Need Our Support
-
-As Virginia begins to ease public health restrictions, the frontline workers on which "re-opening" depends will be placed in increased jeopardy. Given the disproportionalities in the frontline workforce, the increased risk likewise falls even more heavily on people of color. Our region's essential workers have a right to health and safety protections, paid sick leave, compensation in accord with the hazards they face, and more. 
-
-Community-based advoates from the Equity Center Local Steering Committee, working with UVA's President's Council on Community-Univeristy Partnershipsm, is developing a Fair Treatment Charter for Frontline Workers outlining acomprehensive set of policies and practices. (Link when available.)
 
 # Methodology {#methods}
 
