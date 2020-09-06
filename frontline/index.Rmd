@@ -8,7 +8,6 @@ output:
       toc_float: true
       includes:
         before_body: before_body.html
-
 ---
 
 ```{r setup, include=FALSE}
