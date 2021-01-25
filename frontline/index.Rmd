@@ -567,6 +567,16 @@ With community expertise and input, we could supplement and revise this analysis
 
 As both CEPR and the Bay Area analysis observe, this approach includes all workers (16 and above) in the relevant industry but no workers in frontline occupations  outside of these chosen categories. This means the estimates "exclude some workers in occupations (but not industries) that are clearly on the frontlines, while also including some workers who are not in frontline occupations, even though they are in frontline industries." As an example, a police officer is a frontline occupation in a non-frontline industry; a school bus driver is a non-frontline occupation when schools are closed, but in a frontline industry. "Still," CPER notes, "the vast majority of workers in the six frontline industries are frontline workers."
 
+# About
+
+This report was prepared by Michele Claibourn and Sam Powers with input and feedback from colleagues in the UVA Equity Center and in the community.
+
+*Citation* 
+
+Michele Claibourn and Sam Powers. 2020. "Charlottesville Region’s Frontline Workers." UVA Democracy Initiative Center for the Redress of Inequity through Community-Engaged Scholarship. https://virginiaequitycenter.github.io/cvilleequity_covid/frontline/
+
+*Code*
+
 All of the code to produce this report is available on our [GitHub repo](https://github.com/virginiaequitycenter/cvilleequity_covid/tree/master/frontline).
 
 [^1]: The Charlottesville region is defined here as the Thomas Jefferson Area Planning District, which consists of the City of Charlottesville, Albemarle County, Fluvanna County, Green County, Louisa County, and Nelson County. 
